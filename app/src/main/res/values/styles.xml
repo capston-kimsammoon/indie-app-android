@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/styles.xml -->
 <resources>
+    <style name="Theme.IndieConcertApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 필요시 색상 등 추가 설정 -->
+    </style>
+    <style name="CustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>  <!-- 원하는 크기로 설정 -->
+    </style>
 
-    <style name="Theme.IndieConcertApp" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

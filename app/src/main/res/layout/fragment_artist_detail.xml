@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/sectionPosterInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="16dp">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_circle_profile"
+                    android:src="@drawable/sample_profile"
+                    android:clipToOutline="true" />
+
+                <!-- 좋아요 -->
+                <LinearLayout
+                    android:id="@+id/layoutLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_button"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:translationY="64dp"
+                    android:translationX="-28dp">
+
+                    <ImageButton
+                        android:id="@+id/btnLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="좋아요 버튼"
+                        android:src="@drawable/ic_heart_outline" />
+                </LinearLayout>
+
+                <!-- 오른쪽 정보 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginStart="-20dp">
+
+                    <!-- 제목 -->
+                    <TextView
+                        android:id="@+id/tvArtistName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="리락쿠마"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                    <!-- 예매 알림 버튼 -->
+                    <Button
+                        android:id="@+id/btnNotify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_button"
+                        android:drawableEnd="@drawable/ic_notify_off"
+                        android:text="공연알림" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 구분선 -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider"
+            app:layout_constraintTop_toBottomOf="@id/sectionPosterInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/labelSpotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스포티파이"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp"/>
+
+
+        <TextView
+            android:id="@+id/tvSpotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:autoLink="web"
+            android:text="바로가기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelSpotify" />
+
+        <TextView
+            android:id="@+id/labelInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인스타그램"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/labelSpotify"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/tvInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:autoLink="web"
+            android:text="mosuclofficial"
+            app:layout_constraintTop_toBottomOf="@id/tvSpotify"
+            app:layout_constraintStart_toStartOf="@id/tvSpotify" />
+
+        <TextView
+            android:id="@+id/labelScheduledPerformance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예정 공연"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/labelInstagram"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvScheduledPerformances"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/labelScheduledPerformance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/labelPastPerformance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지난 공연"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/rvScheduledPerformances"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPastPerformances"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/labelPastPerformance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

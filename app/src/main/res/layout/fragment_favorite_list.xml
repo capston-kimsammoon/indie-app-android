@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 탭 -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/CustomTabText"
+        app:tabIndicatorColor="@color/light_gray"
+        app:tabSelectedTextColor="@color/text_red"
+        app:tabIndicatorHeight="2dp"
+        app:tabTextColor="@color/black"
+        android:background="@color/white"/>
+
+    <!-- ViewPager2로 공연/아티스트 리스트 전환 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
