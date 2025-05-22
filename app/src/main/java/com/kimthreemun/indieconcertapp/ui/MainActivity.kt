@@ -1,24 +1,29 @@
+// /ui/MainActivity.kt
 package com.kimthreemun.indieconcertapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment
+import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragment
+import com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment
+import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailFragment
+import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-//import androidx.activity.ComponentActivity
-//import androidx.activity.compose.setContent
-//import androidx.activity.enableEdgeToEdge
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.foundation.layout.padding
-//import androidx.compose.material3.Scaffold
-//import androidx.compose.material3.Text
-//import androidx.compose.runtime.Composable
-//import androidx.compose.ui.Modifier
-//import androidx.compose.ui.tooling.preview.Preview
-//import com.kimthreemun.indieconcertapp.ui.theme.IndieConcertAppTheme
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // 첫 진입 시 fragment_performance_list.xml 붙이기
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.home_container, ArtistDetailFragment())
+                .commit()
+        }
+
     }
 }
