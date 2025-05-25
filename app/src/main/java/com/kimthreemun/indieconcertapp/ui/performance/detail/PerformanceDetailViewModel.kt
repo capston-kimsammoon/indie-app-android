@@ -1,4 +1,3 @@
-// /ui/performance/list/PerformanceDetailViewModel.kt
 package com.kimthreemun.indieconcertapp.ui.performance.detail
 
 import androidx.lifecycle.LiveData
@@ -19,6 +18,9 @@ class PerformanceDetailViewModel : ViewModel() {
     private val _likeCount = MutableLiveData(0)
     val likeCount: LiveData<Int> = _likeCount
 
+    private val _isNotified = MutableLiveData(false)
+    val isNotified: LiveData<Boolean> = _isNotified
+
     fun loadPerformanceDetail(performanceId: Int) {
         _performanceDetail.value = Performance(
             id = performanceId,
@@ -28,8 +30,13 @@ class PerformanceDetailViewModel : ViewModel() {
             region = "서울",
             venue = "cafe PPnF",
             artists = listOf(
-                Artist(1, "하츄핑", "https://example.com/image.png", R.drawable.sample_profile)
-            ).map { it.name },
+                Artist(id = 1, name = "하츄핑", profileImageUrl = "https://example.com/image.png", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 2, name = "핑츄", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 3, name = "추추", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 4, name = "추추", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 5, name = "추추", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 6, name = "추추", profileImageResId = R.drawable.sample_profile)
+            ),
             price = "1,000원",
             ticketOpen = "2025.05.01 목요일 오후 9시",
             detailLink = "https://www.instagram.com/kimthreemun",
@@ -39,6 +46,7 @@ class PerformanceDetailViewModel : ViewModel() {
 
         _isLiked.value = false
         _likeCount.value = 12
+        _isNotified.value = false
     }
 
     fun toggleLike() {
@@ -46,5 +54,8 @@ class PerformanceDetailViewModel : ViewModel() {
         _isLiked.value = !liked
         _likeCount.value = (_likeCount.value ?: 0) + if (!liked) 1 else -1
     }
-}
 
+    fun toggleNotify() {
+        _isNotified.value = !(_isNotified.value ?: false)
+    }
+}

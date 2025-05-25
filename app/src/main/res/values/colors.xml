@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ✅ 공통 or 너의 브랜치에서 사용하는 색 -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
+    <!-- ✅ 공통 색들 -->
+    <color name="black">#1C1C1E</color>
+    <color name="white">#FAFAFA</color>
 
+    <!-- ✅ 메인 브랜치에서 추가된 색들 -->
+    <color name="red">#FF3B30</color>
+    <color name="dark_gray">#4B4B4B</color>
+    <color name="light_gray">#B0B0B0</color>
+    <color name="outline_gray">#E4E4E4</color>
+    <color name="theme_orange">#F14F21</color>
+    <color name="theme_orange_alpha">#4DF14F21</color>
+    <color name="purple">#A87CA0</color>
+    <color name="text_red">#9A1616</color>
+
+    <!-- ✅ 너의 브랜치에서만 있었던 색 -->
     <color name="text_primary">#FF1C1C1E</color>
     <color name="text_hint">#FFB0B0B0</color>
-
 </resources>

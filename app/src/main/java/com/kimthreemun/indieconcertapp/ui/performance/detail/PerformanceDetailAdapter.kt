@@ -20,15 +20,20 @@ class PerformanceDetailAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_profile, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_profile, parent, false)
         return ArtistViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
         val artist = artists[position]
         holder.tvName.text = artist.name
+
+        val imageSource = artist.profileImageResId
+            ?: artist.profileImageUrl.takeIf { it.isNotBlank() }
+
         Glide.with(holder.itemView.context)
-            .load(artist.profileImageUrl)
+            .load(imageSource)
             .circleCrop()
             .into(holder.ivProfile)
     }

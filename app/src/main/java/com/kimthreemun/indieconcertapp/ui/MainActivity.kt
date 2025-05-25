@@ -9,7 +9,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment
+import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragment
+import com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment
+import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailFragment
+import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout

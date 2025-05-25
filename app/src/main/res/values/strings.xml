@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">IndieConcertApp</string>
+
+    <string name="header_title">페이지명</string>
+    <string name="performance_title">공연</string>
+    <string name="artist_title">아티스트</string>
+    <string name="back">뒤로가기</string>
+    <string name="menu">메뉴</string>
+    <string name="search">검색</string>
 </resources>

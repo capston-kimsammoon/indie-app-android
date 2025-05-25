@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.kapt) // ✅ 정확한 alias
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -37,13 +39,14 @@ android {
     }
 
     buildFeatures {
-        compose = true
         viewBinding = true
         dataBinding = false
+        compose = true
     }
 }
 
 dependencies {
+    // AndroidX & Jetpack Compose
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -55,15 +58,25 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    implementation("com.github.kizitonwose:CalendarView:1.0.4")
-    implementation("com.tbuonomo:dotsindicator:4.3")
+    // Navigation (명시된 버전 유지)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
-    // ✅ Flexbox 정확한 방식으로 명시
+    // UI & Animation
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.github.kizitonwose:CalendarView:1.0.4")
+    implementation("com.tbuonomo:dotsindicator:4.3")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
 
+    // DI & 이미지 로딩
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,4 +84,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+// ✅ kapt 블록은 반드시 여기서!
+kapt {
+    correctErrorTypes = true
 }
