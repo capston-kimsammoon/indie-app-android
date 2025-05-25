@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <!-- 🔹 상단 아이콘: 뒤로가기 + 알림 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            app:srcCompat="@drawable/icon_back"
+            android:contentDescription="뒤로가기" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNotification"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/icon_notification"
+            android:contentDescription="알림" />
+    </RelativeLayout>
+
+    <!-- 🔹 프로필 + 닉네임 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="48dp"> <!-- ✅ 상단과의 간격 추가 -->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            app:srcCompat="@drawable/ic_profile_default"
+            android:contentDescription="프로필 이미지"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_background" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutNicknameArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="예빈스클럽"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1C1C1E" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivNicknameArrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="6dp"
+                    app:srcCompat="@drawable/icon_go"
+                    android:contentDescription="닉네임 이동"
+                    android:tint="#1C1C1E" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♡ 찜 목록"
+                android:textSize="12sp"
+                android:textColor="#4B4B4B"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_tag_grey"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 포스터 -->
+    <ImageView
+        android:id="@+id/imgPoster"
+        android:layout_width="104dp"
+        android:layout_height="140dp"
+        android:background="@drawable/style_img_corner"
+        android:outlineProvider="background"
+        android:clipToOutline="true"
+        android:contentDescription="공연 포스터"
+        android:scaleType="centerCrop" />
+
+    <!-- 공연 제목 -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lineSpacingExtra="2sp"
+        android:maxLines="2"
+        android:paddingTop="4dp"
+        android:layout_marginBottom="2dp"
+        android:textColor="#1C1C1E"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <!-- 공연장명 -->
+    <TextView
+        android:id="@+id/tvVenue"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#4B4B4B"
+        android:textSize="8sp" />
+</LinearLayout>
