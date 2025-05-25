@@ -30,12 +30,12 @@ class FavoriteViewModel : ViewModel() {
                 date = "2025.05.24 토요일",
                 time = "14:00",
                 region = "서울",
-                artists = artists.map { it.name },
+                artists = artists,
                 price = "10000",
                 ticketOpen = "2025.04.01",
                 detailLink = "https://example.com/detail",
                 posterUrl = "https://example.com/poster.jpg",
-                dday = 8
+                dday = 8,
             ),
             Performance(
                 id = 2,
@@ -44,7 +44,7 @@ class FavoriteViewModel : ViewModel() {
                 date = "2025.05.24 토요일",
                 time = "14:00",
                 region = "서울",
-                artists = artists.map { it.name },
+                artists = artists,
                 price = "10000",
                 ticketOpen = "2025.04.01",
                 detailLink = "https://example.com/detail",
@@ -54,9 +54,9 @@ class FavoriteViewModel : ViewModel() {
         )
     }
 
-    fun toggleLike(artistId: Int) {
+    fun toggleLike(_id: Int) {
         _favoriteArtists.value = _favoriteArtists.value?.map {
-            if (it.id == artistId) it.copy(isLiked = !it.isLiked) else it
+            if (it.id == _id) it.copy(isLiked = !it.isLiked) else it
         }
     }
 

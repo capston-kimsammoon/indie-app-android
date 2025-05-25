@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/sectionPosterInfo"
+            android:id="@+id/sectionProfileInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -22,66 +22,90 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2">
 
-                <ImageView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/bg_circle_profile"
-                    android:src="@drawable/sample_profile"
-                    android:clipToOutline="true" />
-
-                <!-- 좋아요 -->
-                <LinearLayout
-                    android:id="@+id/layoutLike"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_button"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:translationY="64dp"
-                    android:translationX="-28dp">
+                    android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/btnLike"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                    <FrameLayout
+                        android:id="@+id/layoutPtofile"
+                        android:layout_width="82dp"
+                        android:layout_height="82dp"
+                        android:background="@drawable/circle_border">
+                        <ImageView
+                            android:id="@+id/ivProfile"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="centerCrop"
+                            android:layout_gravity="center"
+                            android:src="@drawable/sample_profile"
+                            android:background="@drawable/circle_border"
+                            android:clipToOutline="true" />
+
+                    </FrameLayout>
+
+                    <ImageView
+                        android:id="@+id/ivHeart"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignBottom="@id/layoutPtofile"
+                        android:layout_alignEnd="@id/layoutPtofile"
+                        android:src="@drawable/ic_heart_outline"
+                        android:background="@drawable/circle_border"
                         android:contentDescription="좋아요 버튼"
-                        android:src="@drawable/ic_heart_outline" />
-                </LinearLayout>
+                        android:padding="4dp" />
+                </RelativeLayout>
+
 
                 <!-- 오른쪽 정보 -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="12dp"
-                    android:layout_marginStart="-20dp">
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="16dp">
 
-                    <!-- 제목 -->
+                    <!-- 이름 -->
                     <TextView
                         android:id="@+id/tvArtistName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리락쿠마"
+                        android:fontFamily="@font/pretendard_medium"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-
                     <!-- 예매 알림 버튼 -->
-                    <Button
-                        android:id="@+id/btnNotify"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
+                        android:id="@+id/layoutNotify"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/bg_button"
-                        android:drawableEnd="@drawable/ic_notify_off"
-                        android:text="공연알림" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp">
+                        <TextView
+                            android:id="@+id/tvNotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공연알림"
+                            android:fontFamily="@font/pretendard_regular"
+                            android:textColor="@color/black"
+                            android:padding="2dp"
+                            android:textSize="14sp"/>
+
+                        <ImageButton
+                            android:id="@+id/btnNotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="알림 버튼"
+                            android:padding="2dp"
+                            android:src="@drawable/ic_notify_off"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -93,7 +117,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/divider"
-            app:layout_constraintTop_toBottomOf="@id/sectionPosterInfo"
+            app:layout_constraintTop_toBottomOf="@id/sectionProfileInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
