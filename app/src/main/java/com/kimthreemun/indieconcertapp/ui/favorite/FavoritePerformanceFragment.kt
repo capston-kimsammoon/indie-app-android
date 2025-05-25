@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.FragmentFavoritePerformanceBinding
 import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteViewModel
@@ -33,14 +36,29 @@ class FavoritePerformanceFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter = FavoritePerformanceAdapter(emptyList()) { performance ->
+        adapter = FavoritePerformanceAdapter(
+            performances = emptyList(),
+            onItemClick = { performance ->
+//                val action = FavoriteFragmentDirections.actionToPerformanceDetail(performance.id)
+//                findNavController().navigate(action)
+            },
+            onHeartClick = { performance ->
+                viewModel.toggleLike(performance.id)
+            }
+        )
 
-        }
         binding.rvFavoritePerformances.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFavoritePerformances.adapter = adapter
 
-        viewModel.favoritePerformances.observe(viewLifecycleOwner) { list ->
-            adapter.updateData(list)
+        // 구분선 추가
+        val divider = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let {
+            divider.setDrawable(it)
+        }
+        binding.rvFavoritePerformances.addItemDecoration(divider)
+
+        viewModel.favoritePerformances.observe(viewLifecycleOwner) {
+            adapter.updateData(it)
         }
     }
 

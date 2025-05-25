@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // 첫 진입 시 fragment_performance_list.xml 붙이기
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.home_container, ArtistDetailFragment())
+                .replace(R.id.home_container, FavoriteFragment())
                 .commit()
         }
 

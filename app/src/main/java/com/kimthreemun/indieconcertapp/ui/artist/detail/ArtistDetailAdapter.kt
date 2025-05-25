@@ -37,7 +37,7 @@ class ArtistDetailAdapter(
         holder.tvPerformanceTitle.text = performance.title
         holder.tvPerformanceDate.text = performance.date
         Glide.with(holder.itemView.context)
-            .load(performance.posterUrl)  // posterUrl이 String? 타입이라고 가정
+            .load(performance.posterImageResId)  // posterUrl이 String? 타입이라고 가정
             .placeholder(R.drawable.sample_poster)
             .error(R.drawable.sample_poster)
             .into(holder.ivPoster)

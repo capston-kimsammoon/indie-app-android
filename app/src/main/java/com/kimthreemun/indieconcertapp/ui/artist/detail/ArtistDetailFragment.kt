@@ -4,18 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kimthreemun.indieconcertapp.R
-
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kimthreemun.indieconcertapp.databinding.FragmentArtistDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.bumptech.glide.Glide
-import com.kimthreemun.indieconcertapp.data.model.domain.Artist
-import com.kimthreemun.indieconcertapp.data.model.domain.Performance
-import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailViewModel
+import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.databinding.FragmentArtistDetailBinding
 import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ArtistDetailFragment : Fragment() {
@@ -27,9 +23,6 @@ class ArtistDetailFragment : Fragment() {
 
     private lateinit var scheduledAdapter: ArtistDetailAdapter
     private lateinit var pastAdapter: ArtistDetailAdapter
-
-    private var isLiked = false
-    private var isNotified = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,57 +36,74 @@ class ArtistDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerViews()
+        setupListeners()
+        observeViewModel()
+
+        // 실제 artistId 받아오는 코드로 대체 필요
+        viewModel.loadArtistDetail(artistId = 1)
+    }
+
+    private fun setupRecyclerViews() {
         scheduledAdapter = ArtistDetailAdapter(mutableListOf())
         pastAdapter = ArtistDetailAdapter(mutableListOf())
 
-        binding.rvScheduledPerformances.adapter = scheduledAdapter
-        binding.rvScheduledPerformances.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvScheduledPerformances.apply {
+            adapter = scheduledAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
 
-        binding.rvPastPerformances.adapter = pastAdapter
-        binding.rvPastPerformances.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-        //setupListeners()
-        //observeViewModel()
-
-        //val artistId = arguments?.getInt("artistId") ?: return
-        //viewModel.loadArtistDetail(artistId)
-
-        val testScheduledPerformances = listOf(
-            Performance(id = 1, title = "내일의공연입니따~", date = "2025.05.23", posterImageResId = R.drawable.sample_poster),
-        )
-
-        val testPastPerformances = listOf(
-            Performance(id = 1, title = "어제의공연입니따~", date = "2025.05.21", posterImageResId = R.drawable.sample_poster),
-        )
-        scheduledAdapter.setData(testScheduledPerformances)
-        pastAdapter.setData(testPastPerformances)
+        binding.rvPastPerformances.apply {
+            adapter = pastAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
     }
 
     private fun setupListeners() {
-        binding.btnLike.setOnClickListener {
-            isLiked = !isLiked
-            updateLikeButton()
+        binding.ivHeart.setOnClickListener {
             viewModel.toggleLike()
         }
 
         binding.btnNotify.setOnClickListener {
-            isNotified = !isNotified
-            updateNotifyButton()
             viewModel.toggleNotify()
         }
     }
 
-    private fun updateLikeButton() {
-        binding.btnLike.setImageResource(
-            if (isLiked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
-        )
-    }
+    private fun observeViewModel() {
+        viewModel.artist.observe(viewLifecycleOwner) { artist ->
+            binding.tvArtistName.text = artist.name
+            binding.tvInstagram.text = artist.instagramHandle
 
-    private fun updateNotifyButton() {
-        val drawable = if (isNotified) R.drawable.ic_notify_on else R.drawable.ic_notify_off
-        binding.btnNotify.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawable, 0)
-    }
+            Glide.with(this)
+                .load(artist.profileImageUrl.ifBlank { R.drawable.sample_profile })
+                .placeholder(R.drawable.sample_profile)
+                .circleCrop()
+                .into(binding.ivProfile)
+        }
 
+        viewModel.isLiked.observe(viewLifecycleOwner) { liked ->
+            binding.ibLike.setImageResource(
+                if (liked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
+            )
+        }
+
+        viewModel.isNotified.observe(viewLifecycleOwner) { notified ->
+            binding.btnNotify.apply {
+                setImageResource(
+                    if (notified) R.drawable.ic_notify_on else R.drawable.ic_notify_off
+                )
+            }
+        }
+
+
+        viewModel.scheduledPerformances.observe(viewLifecycleOwner) {
+            scheduledAdapter.setData(it)
+        }
+
+        viewModel.pastPerformances.observe(viewLifecycleOwner) {
+            pastAdapter.setData(it)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

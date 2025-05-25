@@ -28,7 +28,7 @@ class PerformanceDetailAdapter(
         val artist = artists[position]
         holder.tvName.text = artist.name
         Glide.with(holder.itemView.context)
-            .load(artist.profileImageUrl)
+            .load(artist.profileImageResId)
             .circleCrop()
             .into(holder.ivProfile)
     }

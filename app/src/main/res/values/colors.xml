@@ -7,6 +7,7 @@
     <color name="light_gray">#B0B0B0</color>
     <color name="outline_gray">#E4E4E4</color>
     <color name="theme_orange">#F14F21</color>
+    <color name="theme_orange_alpha">#4DF14F21</color>
     <color name="purple">#A87CA0</color>
     <color name="text_red">#9A1616</color>
 </resources>
