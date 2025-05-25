@@ -1,4 +1,3 @@
-// FavoritePerformanceFragment.kt
 package com.kimthreemun.indieconcertapp.ui.favorite.list
 
 import android.os.Bundle
@@ -8,11 +7,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.R
-import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.FragmentFavoritePerformanceBinding
 import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteViewModel
 import com.kimthreemun.indieconcertapp.ui.favorite.FavoritePerformanceAdapter
@@ -39,8 +36,9 @@ class FavoritePerformanceFragment : Fragment() {
         adapter = FavoritePerformanceAdapter(
             performances = emptyList(),
             onItemClick = { performance ->
-//                val action = FavoriteFragmentDirections.actionToPerformanceDetail(performance.id)
-//                findNavController().navigate(action)
+                // TODO: 상세 페이지 이동 시 Navigation 사용 가능
+                // val action = FavoriteFragmentDirections.actionToPerformanceDetail(performance.id)
+                // findNavController().navigate(action)
             },
             onHeartClick = { performance ->
                 viewModel.toggleLike(performance.id)

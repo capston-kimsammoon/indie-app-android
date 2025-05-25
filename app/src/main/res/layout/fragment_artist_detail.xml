@@ -16,7 +16,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:padding="16dp">
 
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -31,6 +30,7 @@
                         android:layout_width="82dp"
                         android:layout_height="82dp"
                         android:background="@drawable/circle_border">
+
                         <ImageView
                             android:id="@+id/ivProfile"
                             android:layout_width="80dp"
@@ -41,7 +41,6 @@
                             android:src="@drawable/sample_profile"
                             android:background="@drawable/circle_border"
                             android:clipToOutline="true" />
-
                     </FrameLayout>
 
                     <ImageView
@@ -56,8 +55,6 @@
                         android:padding="4dp" />
                 </RelativeLayout>
 
-
-                <!-- 오른쪽 정보 -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -65,7 +62,6 @@
                     android:gravity="center_vertical"
                     android:layout_marginLeft="16dp">
 
-                    <!-- 이름 -->
                     <TextView
                         android:id="@+id/tvArtistName"
                         android:layout_width="wrap_content"
@@ -76,7 +72,6 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <!-- 예매 알림 버튼 -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
@@ -87,6 +82,7 @@
                         android:orientation="horizontal"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp">
+
                         <TextView
                             android:id="@+id/tvNotify"
                             android:layout_width="wrap_content"
@@ -108,10 +104,8 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
-        <!-- 구분선 -->
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
@@ -120,7 +114,6 @@
             app:layout_constraintTop_toBottomOf="@id/sectionProfileInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
 
         <TextView
             android:id="@+id/labelSpotify"
@@ -133,7 +126,6 @@
             android:paddingVertical="8dp"
             android:paddingHorizontal="16dp"
             android:layout_marginTop="8dp"/>
-
 
         <TextView
             android:id="@+id/tvSpotify"
@@ -217,7 +209,5 @@
             app:layout_constraintTop_toBottomOf="@id/labelPastPerformance"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

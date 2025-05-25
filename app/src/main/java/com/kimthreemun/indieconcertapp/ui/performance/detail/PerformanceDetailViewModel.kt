@@ -30,7 +30,7 @@ class PerformanceDetailViewModel : ViewModel() {
             region = "서울",
             venue = "cafe PPnF",
             artists = listOf(
-                Artist(id = 1, name = "하츄", profileImageResId = R.drawable.sample_profile),
+                Artist(id = 1, name = "하츄핑", profileImageUrl = "https://example.com/image.png", profileImageResId = R.drawable.sample_profile),
                 Artist(id = 2, name = "핑츄", profileImageResId = R.drawable.sample_profile),
                 Artist(id = 3, name = "추추", profileImageResId = R.drawable.sample_profile),
                 Artist(id = 4, name = "추추", profileImageResId = R.drawable.sample_profile),

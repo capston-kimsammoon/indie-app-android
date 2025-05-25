@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.R
@@ -54,7 +53,7 @@ class PerformanceListFragment : Fragment() {
         }
 
         binding.ivCalendar.setOnClickListener {
-//            findNavController().navigate(R.id.calendarFragment)
+            // findNavController().navigate(R.id.calendarFragment)
         }
 
         binding.btnSort.setOnClickListener { showSortOptions() }

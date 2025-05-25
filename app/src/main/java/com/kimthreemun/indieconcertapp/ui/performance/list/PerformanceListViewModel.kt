@@ -1,5 +1,3 @@
-// /ui/performance/list/PerformanceListViewModel.kt
-// 상태 관리
 package com.kimthreemun.indieconcertapp.ui.performance.list
 
 import androidx.lifecycle.LiveData
@@ -10,6 +8,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.data.model.domain.Artist
 
 class PerformanceListViewModel : ViewModel() {
 
@@ -61,7 +60,7 @@ class PerformanceListViewModel : ViewModel() {
     }
 
     private fun loadPerformances() {
-        val dummyArtist = com.kimthreemun.indieconcertapp.data.model.domain.Artist(
+        val dummyArtist = Artist(
             id = 1,
             name = "아티스트 이름",
             profileImageUrl = "https://example.com/artist.jpg",
@@ -85,7 +84,7 @@ class PerformanceListViewModel : ViewModel() {
                 dday = 8
             ),
             Performance(
-                id = 1,
+                id = 2,
                 title = "운해몽2",
                 venue = "인터플레이",
                 date = "2025.05.11 일요일",
@@ -99,7 +98,7 @@ class PerformanceListViewModel : ViewModel() {
                 dday = 8
             ),
             Performance(
-                id = 1,
+                id = 3,
                 title = "운해몽3",
                 venue = "인터플레이",
                 date = "2025.05.12 화요일",

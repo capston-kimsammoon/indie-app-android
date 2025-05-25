@@ -1,16 +1,12 @@
 package com.kimthreemun.indieconcertapp.ui.artist.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.databinding.ItemArtistBinding
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Artist
-import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailAdapter.ArtistViewHolder
 
 class ArtistListAdapter(
     private var artists: MutableList<Artist>,
@@ -38,7 +34,6 @@ class ArtistListAdapter(
             }
         }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
         val binding = ItemArtistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
