@@ -1,4 +1,3 @@
-// /ui/artist/list/ArtistListfragment.kt
 package com.kimthreemun.indieconcertapp.ui.artist.list
 
 import android.os.Bundle
@@ -26,7 +25,6 @@ class ArtistListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentArtistListBinding.inflate(inflater, container, false)
@@ -58,3 +56,5 @@ class ArtistListFragment : Fragment() {
         _binding = null
     }
 }
+
+

@@ -1,4 +1,7 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="0dp">
@@ -23,6 +26,7 @@
                 android:layout_height="42dp"
                 android:layout_margin="12dp"
                 android:background="@drawable/circle_border">
+
                 <ImageView
                     android:id="@+id/ivProfile"
                     android:layout_width="40dp"
@@ -44,6 +48,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- 하트 버튼 영역 -->
         <FrameLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
@@ -51,7 +56,6 @@
             android:layout_gravity="center_vertical"
             android:foregroundGravity="center">
 
-            <!-- 하트 버튼 -->
             <ImageButton
                 android:id="@+id/btnHeart"
                 android:layout_width="match_parent"

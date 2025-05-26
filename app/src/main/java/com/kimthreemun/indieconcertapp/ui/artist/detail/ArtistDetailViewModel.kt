@@ -1,4 +1,3 @@
-// /ui/performance/list/ArtistDetailViewModel.kt
 package com.kimthreemun.indieconcertapp.ui.artist.detail
 
 import androidx.lifecycle.LiveData
@@ -50,7 +49,6 @@ class ArtistDetailViewModel : ViewModel() {
         _likeCount.value = 9
         _isNotified.value = false
     }
-
 
     fun toggleLike() {
         val liked = _isLiked.value ?: false

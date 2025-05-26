@@ -1,0 +1,71 @@
+<!-- res/layout/activity_board.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- 상단 바 -->
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/top_bar" />
+
+
+    <!-- 상단 필터 버튼들 -->
+    <LinearLayout
+        android:id="@+id/filter_buttons"
+        android:layout_below="@id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:padding="12dp">
+
+        <android.widget.Button
+            android:id="@+id/btn_my_posts"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_rounded"
+            android:text="내가 쓴 글"
+            android:textColor="#4B4B4B"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="1dp" />
+
+        <android.widget.Button
+            android:id="@+id/btn_my_comments"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_rounded"
+            android:text="내가 댓글 단 글"
+            android:textColor="#4B4B4B"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 게시글 목록 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_posts"
+        android:layout_below="@id/filter_buttons"
+        android:layout_above="@+id/fab_write"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp" />
+
+    <!-- 글쓰기 버튼 -->
+    <android.widget.Button
+        android:id="@+id/fab_write"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_write"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="글쓰기"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+</RelativeLayout>

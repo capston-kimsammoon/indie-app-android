@@ -9,7 +9,6 @@ import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFr
 import com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment
 import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailFragment
 import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment
-import com.kimthreemun.indieconcertapp.ui.mypage.MypageFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // 첫 진입 시 fragment_performance_list.xml 붙이기
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.home_container, MypageFragment())
+                .replace(R.id.home_container, FavoriteFragment())
                 .commit()
         }
 
