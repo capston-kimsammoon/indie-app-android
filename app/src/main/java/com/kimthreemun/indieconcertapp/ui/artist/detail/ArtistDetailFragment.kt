@@ -82,7 +82,7 @@ class ArtistDetailFragment : Fragment() {
         }
 
         viewModel.isLiked.observe(viewLifecycleOwner) { liked ->
-            binding.ibLike.setImageResource(
+            binding.ivHeart.setImageResource(
                 if (liked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
             )
         }
