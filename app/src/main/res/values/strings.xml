@@ -5,4 +5,7 @@
     <string name="back">뒤로가기</string>
     <string name="menu">메뉴</string>
     <string name="search">검색</string>
+    <string name="poster_img">포스터 이미지</string>
+    <string name="copy">복사</string>
+    <string name="move">이동하기</string>
 </resources>
