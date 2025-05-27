@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.data.model.domain.Artist
 
 class ArtistFragment : Fragment() {
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ArtistAdapter
 
@@ -20,10 +22,14 @@ class ArtistFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = view.findViewById(R.id.recyclerView)
-        adapter = ArtistAdapter()
+
+        val dummyList = listOf(
+            Artist(1, "김삼문", "https://example.com/image1.jpg", R.drawable.sample_profile),
+            Artist(2, "김밥삼문", "https://example.com/image2.jpg", R.drawable.sample_profile)
+        )
+
+        adapter = ArtistAdapter(dummyList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
-
-        adapter.submitList(listOf("김삼문", "김밥삼문")) // 예시
     }
 }

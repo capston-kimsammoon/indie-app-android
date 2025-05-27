@@ -16,11 +16,10 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_activity)
+        setContentView(R.layout.activity_search)
 
-        viewPager = findViewById(R.id.viewPager)
-        tabLayout = findViewById(R.id.tabLayout)
-        searchEditText = findViewById(R.id.etSearch)
+        viewPager = findViewById(R.id.view_pager)
+        tabLayout = findViewById(R.id.layout_tabs)
 
         val adapter = SearchPagerAdapter(this)
         viewPager.adapter = adapter
