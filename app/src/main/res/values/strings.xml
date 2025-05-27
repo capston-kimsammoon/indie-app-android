@@ -7,4 +7,6 @@
     <string name="back">뒤로가기</string>
     <string name="menu">메뉴</string>
     <string name="search">검색</string>
+    <string name="post">자유게시판</string>
+
 </resources>
