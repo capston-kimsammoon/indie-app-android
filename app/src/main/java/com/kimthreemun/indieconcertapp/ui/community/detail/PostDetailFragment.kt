@@ -18,6 +18,9 @@ import com.kimthreemun.indieconcertapp.data.model.domain.Comment
 import com.kimthreemun.indieconcertapp.data.model.domain.Post
 import com.kimthreemun.indieconcertapp.ui.community.list.CommentAdapter
 import com.kimthreemun.indieconcertapp.ui.community.list.DummyCommentData
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class PostDetailFragment : Fragment() {
 
@@ -37,6 +40,17 @@ class PostDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        // 제목 변경
+        view.findViewById<TextView>(R.id.headerTitle).text = "자유게시판"
+
+        // 뒤로가기 버튼 동작 설정
+        view.findViewById<ImageView>(R.id.iconBack).setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
         post?.let { p ->
             view.findViewById<TextView>(R.id.detailTitle).text = p.title
             view.findViewById<TextView>(R.id.detailContent).text = p.content
@@ -72,13 +86,16 @@ class PostDetailFragment : Fragment() {
                 }
 
                 val newCommentId = (DummyCommentData.commentList.maxOfOrNull { it.id } ?: 0) + 1
+                val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                val now = formatter.format(Date())
+
                 val newComment = Comment(
                     id = newCommentId,
                     postId = p.id,
                     nickname = "나",
                     profileUrl = "",
                     content = text,
-                    createdAt = "방금 전"
+                    createdAt = now
                 )
 
                 DummyCommentData.commentList.add(newComment)

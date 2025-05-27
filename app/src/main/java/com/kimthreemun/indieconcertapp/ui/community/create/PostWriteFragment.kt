@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Post
 import com.kimthreemun.indieconcertapp.ui.community.list.DummyPostData
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 class PostWriteFragment : Fragment() {
@@ -31,6 +35,14 @@ class PostWriteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        view.findViewById<TextView>(R.id.headerTitle)?.text = "글쓰기"
+
+        view.findViewById<ImageView>(R.id.btn_back)?.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+
         editTitle = view.findViewById(R.id.edit_title)
         editContent = view.findViewById(R.id.edit_content)
         submitButton = view.findViewById(R.id.btn_submit)
@@ -47,12 +59,14 @@ class PostWriteFragment : Fragment() {
 
             // 임시로 게시물 ID 생성 (마지막 ID + 1)
             val newId = (DummyPostData.postList.maxOfOrNull { it.id } ?: 0) + 1
+            val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+            val now = formatter.format(Date())
 
             val newPost = Post(
                 id = newId,
                 nickname = "나", // 임시 닉네임
                 profileUrl = "",
-                createdAt = "방금 전",
+                createdAt = now,
                 title = title,
                 content = content,
                 imageUrl = null,

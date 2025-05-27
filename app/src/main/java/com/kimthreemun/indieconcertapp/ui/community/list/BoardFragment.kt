@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -27,6 +29,13 @@ class BoardFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        view.findViewById<TextView>(R.id.headerTitle).text = "자유게시판"
+
+        // 뒤로가기 버튼 동작 설정
+        view.findViewById<ImageView>(R.id.iconBack).setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.recyclerViewPosts)
