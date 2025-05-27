@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/header_home" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPosts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"/>
+
+    <!-- ✅ 글쓰기 버튼 -->
+    <Button
+        android:id="@+id/btn_write_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="글쓰기"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_write"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#F14F21"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
