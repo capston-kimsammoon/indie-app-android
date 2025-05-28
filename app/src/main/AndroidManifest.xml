@@ -1,13 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kimthreemun.indieconcertapp">
-<<<<<<< HEAD
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-=======
->>>>>>> cc933e52565fb768e843568f9a724c6c3aecf129
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -24,12 +21,10 @@
         android:theme="@style/Theme.IndieConcertApp"
         tools:targetApi="31">
 
-<<<<<<< HEAD
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="hmbz4hrmrx" />
 
-=======
         <!-- ✅ 테스트용 테마 오버라이드 -->
         <activity
             android:name=".ui.MainActivity"

@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openDrawer() {
-        drawerLayout.openDrawer(GravityCompat.START)
+        drawerLayout.openDrawer(GravityCompat.START)f
     }
 
     override fun onSupportNavigateUp(): Boolean {
