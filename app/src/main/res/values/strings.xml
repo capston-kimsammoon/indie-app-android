@@ -2,10 +2,17 @@
     <string name="app_name">IndieConcertApp</string>
 
     <string name="header_title">페이지명</string>
+    <string name="performance_title">공연</string>
+    <string name="artist_title">아티스트</string>
     <string name="back">뒤로가기</string>
     <string name="menu">메뉴</string>
     <string name="search">검색</string>
+<<<<<<< HEAD
     <string name="poster_img">포스터 이미지</string>
     <string name="copy">복사</string>
     <string name="move">이동하기</string>
+=======
+    <string name="post">자유게시판</string>
+
+>>>>>>> cc933e52565fb768e843568f9a724c6c3aecf129
 </resources>

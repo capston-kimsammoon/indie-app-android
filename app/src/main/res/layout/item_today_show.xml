@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp">
+
+            <!-- 포스터 이미지 -->
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:background="@drawable/style_img_corner"
+                android:outlineProvider="background"
+                android:clipToOutline="true"
+                android:contentDescription="poster"
+                android:scaleType="centerCrop" />
+
+            <!-- 공연 제목 -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/ivPoster"
+                android:layout_marginStart="12dp"
+                android:layout_alignTop="@id/ivPoster"
+                android:text="공연 제목입니다"
+                android:textColor="#FF1C1C1E"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="8sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <!-- 공연장 이름 -->
+            <TextView
+                android:id="@+id/tvPlace"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTitle"
+                android:layout_alignStart="@id/tvTitle"
+                android:layout_marginTop="6dp"
+                android:text="홍대 무대륙"
+                android:textColor="#FF4B4B4B"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:lineSpacingExtra="6sp" />
+
+            <!-- 날짜 -->
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPlace"
+                android:layout_alignStart="@id/tvPlace"
+                android:layout_marginTop="6dp"
+                android:text="2024.05.15 (수)"
+                android:textColor="#FF4B4B4B"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:lineSpacingExtra="6sp" />
+
+            <!-- 오른쪽 이동 아이콘 -->
+            <ImageView
+                android:id="@+id/ivGo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="go"
+                android:src="@drawable/icon_go" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

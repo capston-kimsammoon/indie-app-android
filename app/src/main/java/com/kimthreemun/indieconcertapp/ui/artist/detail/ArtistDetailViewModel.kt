@@ -1,4 +1,3 @@
-// /ui/performance/list/ArtistDetailViewModel.kt
 package com.kimthreemun.indieconcertapp.ui.artist.detail
 
 import androidx.lifecycle.LiveData
@@ -16,11 +15,20 @@ class ArtistDetailViewModel : ViewModel() {
     val scheduledPerformances = MutableLiveData<List<Performance>>()
     val pastPerformances = MutableLiveData<List<Performance>>()
 
+    private val _isLiked = MutableLiveData(false)
+    val isLiked: LiveData<Boolean> = _isLiked
+
+    private val _likeCount = MutableLiveData(0)
+    val likeCount: LiveData<Int> = _likeCount
+
+    private val _isNotified = MutableLiveData(false)
+    val isNotified: LiveData<Boolean> = _isNotified
+
     fun loadArtistDetail(artistId: Int) {
         _artist.value = Artist(
             id = artistId,
             name = "리락쿠마",
-            profileImageUrl = "",  // 테스트용 URL
+            profileImageUrl = "",
             spotifyUrl = "https://open.spotify.com",
             instagramHandle = "@rilakkuma",
             isLiked = false,
@@ -36,16 +44,19 @@ class ArtistDetailViewModel : ViewModel() {
             Performance(id = 3, title = "지난 공연 A", date = "2025.05.10", posterImageResId = R.drawable.sample_poster),
             Performance(id = 4, title = "지난 공연 B", date = "2025.04.20", posterImageResId = R.drawable.sample_poster),
         )
+
+        _isLiked.value = false
+        _likeCount.value = 9
+        _isNotified.value = false
     }
 
-
     fun toggleLike() {
-        _artist.value = _artist.value?.copy(isLiked = !_artist.value!!.isLiked)
-        // repository에 좋아요 상태 저장 호출
+        val liked = _isLiked.value ?: false
+        _isLiked.value = !liked
+        _likeCount.value = (_likeCount.value ?: 0) + if (!liked) 1 else -1
     }
 
     fun toggleNotify() {
-//        _artist.value = _artist.value?.copy(isNotified = !_artist.value!!.isNotified)
-        // repository에 알림 설정 저장 호출
+        _isNotified.value = !(_isNotified.value ?: false)
     }
 }

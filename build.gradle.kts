@@ -5,3 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.dagger.hilt.android) apply false
 }
+
+// Top-level build.gradle.kts
+buildscript {
+    dependencies {
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7")
+    }
+}

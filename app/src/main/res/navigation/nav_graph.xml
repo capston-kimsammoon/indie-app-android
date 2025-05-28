@@ -1,8 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.home.HomeFragment"
+        android:label="홈" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.search.SearchFragment"
+        android:label="검색" />
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.calendar.CalendarFragment"
+        android:label="캘린더">
+
+        <!-- ✅ 검색 페이지로 이동하는 액션 추가 -->
+        <action
+            android:id="@+id/action_calendarFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.bookmark.BookmarkFragment"
+        android:label="찜 목록" />
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.notification.NotificationFragment"
+        android:label="알림" />
+
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.mypage.mypageFragment"
+        android:label="마이페이지" />
+
+    <fragment
+        android:id="@+id/performanceListFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment"
+        android:label="공연 목록" />
+
+    <fragment
+        android:id="@+id/venueListFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.venue.list.VenueListFragment"
+        android:label="공연장 목록" />
+
+    <fragment
+        android:id="@+id/artistListFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment"
+        android:label="아티스트 목록" />
+
+    <fragment
+        android:id="@+id/postListFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.community.list.BoardFragment"
+        android:label="자유게시판">
+
+        <!-- ✅ PostDetailFragment로 이동하는 action 추가 -->
+        <action
+            android:id="@+id/action_postListFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+
+        <!-- ✅ 글쓰기 화면으로 가는 액션 추가 -->
+        <action
+            android:id="@+id/action_postListFragment_to_postWriteFragment"
+            app:destination="@id/postWriteFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.community.detail.PostDetailFragment"
+        android:label="게시글 상세">
+        <argument
+            android:name="post"
+            app:argType="com.kimthreemun.indieconcertapp.data.model.domain.Post" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postWriteFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.community.create.PostWriteFragment"
+        android:label="글쓰기 화면" />
+
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.map.MapFragment"
+        android:label="가까운 공연 찾기" />
 
 
 </navigation>

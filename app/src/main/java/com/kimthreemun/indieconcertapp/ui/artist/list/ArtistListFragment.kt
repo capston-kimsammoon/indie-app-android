@@ -1,4 +1,3 @@
-// /ui/artist/list/ArtistListfragment.kt
 package com.kimthreemun.indieconcertapp.ui.artist.list
 
 import android.os.Bundle
@@ -26,7 +25,6 @@ class ArtistListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentArtistListBinding.inflate(inflater, container, false)
@@ -34,7 +32,7 @@ class ArtistListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter = ArtistListAdapter(emptyList()) { artistId ->
+        adapter = ArtistListAdapter(mutableListOf()) { artistId ->
             viewModel.toggleLike(artistId)
         }
 
@@ -42,11 +40,11 @@ class ArtistListFragment : Fragment() {
         binding.rvArtistLists.adapter = adapter
 
         // 구분선 추가
-        val dividerItemDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        val divider = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
         ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let {
-            dividerItemDecoration.setDrawable(it)
+            divider.setDrawable(it)
         }
-        binding.rvArtistLists.addItemDecoration(dividerItemDecoration)
+        binding.rvArtistLists.addItemDecoration(divider)
 
         viewModel.artists.observe(viewLifecycleOwner) {
             adapter.updateList(it)
@@ -58,3 +56,5 @@ class ArtistListFragment : Fragment() {
         _binding = null
     }
 }
+
+

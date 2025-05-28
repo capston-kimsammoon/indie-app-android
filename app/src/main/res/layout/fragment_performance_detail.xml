@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            android:padding="16dp">
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                         android:paddingEnd="8dp">
 
                         <ImageButton
-                            android:id="@+id/btnLike"
+                            android:id="@+id/ivHeart"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -60,16 +60,15 @@
                             android:src="@drawable/ic_heart_outline" />
 
                         <TextView
-                            android:id="@+id/tvLikes"
+                            android:id="@+id/tvLikeCnt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="0"
+                            android:text="22"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-
 
                 <!-- 오른쪽 정보 -->
                 <LinearLayout
@@ -101,19 +100,39 @@
                         android:layout_marginTop="8dp"
                         android:textColor="@color/black" />
 
-
                     <!-- 예매 알림 버튼 -->
-                    <Button
-                        android:id="@+id/btnNotify"
+                    <LinearLayout
+                        android:id="@+id/layoutNotify"
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/bg_button"
-                        android:drawableEnd="@drawable/ic_notify_on"
-                        android:text="예매알림" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/tvNotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="예매알림"
+                            android:fontFamily="@font/pretendard_regular"
+                            android:textColor="@color/black"
+                            android:padding="2dp"
+                            android:textSize="14sp"/>
+
+                        <ImageButton
+                            android:id="@+id/btnNotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="알림 버튼"
+                            android:padding="2dp"
+                            android:src="@drawable/ic_notify_off"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
         <!-- 구분선 -->
@@ -126,158 +145,143 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-
-        <!-- 공연일시 -->
-        <TextView
-            android:id="@+id/labelDate"
-            android:layout_width="wrap_content"
+        <!-- 공연 상세 정보 묶음 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sectionInfo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="공연일시"
-            android:textStyle="bold"
+            android:padding="20dp"
             app:layout_constraintTop_toBottomOf="@id/divider"
             app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp"
-            android:layout_marginTop="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="2025.05.09 토요일 오후 8시"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.412"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelDate" />
+            <!-- 공연일시 -->
+            <TextView
+                android:id="@+id/labelDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="공연일시"
+                android:textStyle="bold"
+                android:paddingVertical="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- 공연장 -->
-        <TextView
-            android:id="@+id/labelVenue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="공연장"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/labelDate"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp" />
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025.05.09 토요일 오후 8시"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/labelDate" />
 
-        <TextView
-            android:id="@+id/tvVenue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
-            android:drawablePadding="8dp"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="cafe PPnF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.289"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelVenue" />
+            <!-- 공연장 -->
+            <TextView
+                android:id="@+id/labelVenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="공연장"
+                android:paddingVertical="8dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/labelDate"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- 출연진 -->
-        <TextView
-            android:id="@+id/labelArtists"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="출연진"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tvVenue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp" />
+            <TextView
+                android:id="@+id/tvVenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawablePadding="8dp"
+                android:text="cafe PPnF"
+                android:paddingVertical="8dp"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/tvDate"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvArtists"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/labelArtists"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <!-- 출연진 -->
+            <TextView
+                android:id="@+id/labelArtists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출연진"
+                android:paddingVertical="8dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tvVenue"
+                app:layout_constraintStart_toStartOf="parent" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvArtists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/labelArtists"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+            <!-- 티켓 가격 -->
+            <TextView
+                android:id="@+id/labelPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="티켓 가격"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/rvArtists"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- 티켓 가격 -->
-        <TextView
-            android:id="@+id/labelPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="티켓 가격"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/rvArtists"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp" />
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10,000원"
+                android:paddingVertical="8dp"
+                app:layout_constraintStart_toStartOf="@+id/tvDate"
+                app:layout_constraintTop_toTopOf="@+id/labelPrice"/>
 
+            <!-- 티켓 오픈 -->
+            <TextView
+                android:id="@+id/labelOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="티켓 오픈"
+                android:paddingVertical="8dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/labelPrice"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="10,000원"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.269"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelPrice" />
+            <TextView
+                android:id="@+id/tvTicketOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025. 05. 16. 금요일 오후 9시"
+                android:paddingVertical="8dp"
+                app:layout_constraintStart_toStartOf="@+id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/labelOpen" />
 
-        <!-- 티겟 오픈 -->
-        <TextView
-            android:id="@+id/labelOpen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="티켓 오픈"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/labelPrice"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp"/>
+            <!-- 인스타그램 계정 링크 -->
+            <TextView
+                android:id="@+id/labelDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상세 정보"
+                android:paddingVertical="8dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/labelOpen"
+                app:layout_constraintStart_toStartOf="parent" />
 
-
-        <TextView
-            android:id="@+id/tvTicketOpen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="2025. 05. 16. 금요일 오후 9시"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.432"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelOpen" />
-
-        <!-- 인스타그램 계정 링크 -->
-        <TextView
-            android:id="@+id/labelDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="상세 정보"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/labelOpen"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="16dp" />
-
-        <TextView
-            android:id="@+id/tvDetailLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="https://ticketlink.com/perf/123"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelDetail" />
+            <TextView
+                android:id="@+id/tvDetailLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:paddingVertical="8dp"
+                android:text="https://ticketlink.com/perf/123"
+                app:layout_constraintStart_toStartOf="@+id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/labelDetail" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

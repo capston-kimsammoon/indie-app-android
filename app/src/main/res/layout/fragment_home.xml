@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <include layout="@layout/header_home" />
+
+        <!-- 상단 아이콘 Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/iconHamburger"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:src="@drawable/icon_hamburger"
+                app:tint="#F14F21" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_logo" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+
+            <ImageView
+                android:id="@+id/iconQ"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/icon_q" />
+        </LinearLayout>
+
+        <!-- 오늘 날짜 공연 -->
+        <TextView
+            android:id="@+id/tvTodayTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5월 21일 공연"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF1C1C1E"
+            android:layout_marginTop="32dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerTodayConcert"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- 인디케이터 (WormDotsIndicator) -->
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/dotsIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            app:dotsColor="#E4E4E4"
+            app:selectedDotColor="#F14F21"
+            app:dotsSize="6dp"
+            app:dotsSpacing="6dp" />
+
+        <!-- ✅ 캘린더 안내 -->
+        <LinearLayout
+            android:id="@+id/layoutCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_circle_grey">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/calander"
+                    android:contentDescription="calendar" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="캘린더로 공연 일정 확인하기"
+                android:textSize="14sp"
+                android:textColor="#FF1C1C1E"
+                android:layout_gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/icon_go"
+                android:contentDescription="go" />
+        </LinearLayout>
+
+
+        <!-- NEW 업로드 공연 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEW 업로드 공연 >"
+                android:textSize="16sp"
+                android:textColor="#FF1C1C1E"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerNewConcert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- 티켓 오픈 예정 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="티켓 오픈 예정 >"
+                android:textSize="16sp"
+                android:textColor="#FF1C1C1E"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTicketOpen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- 맞춤 추천 공연 -->
+        <TextView
+            android:id="@+id/tvRecommended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="예빈스클럽님 맞춤 추천 공연"
+            android:textSize="16sp"
+            android:textColor="#FF1C1C1E"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerRecommended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

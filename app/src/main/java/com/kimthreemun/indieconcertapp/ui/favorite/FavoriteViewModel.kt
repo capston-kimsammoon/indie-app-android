@@ -1,4 +1,3 @@
-// /ui/favorite/FavoriteViewModel.kt
 package com.kimthreemun.indieconcertapp.ui.favorite
 
 import androidx.lifecycle.LiveData
@@ -30,7 +29,7 @@ class FavoriteViewModel : ViewModel() {
                 date = "2025.05.24 토요일",
                 time = "14:00",
                 region = "서울",
-                artists = artists.map { it.name },
+                artists = artists,  // ← 여기 충돌 해결
                 price = "10000",
                 ticketOpen = "2025.04.01",
                 detailLink = "https://example.com/detail",
@@ -44,13 +43,13 @@ class FavoriteViewModel : ViewModel() {
                 date = "2025.05.24 토요일",
                 time = "14:00",
                 region = "서울",
-                artists = artists.map { it.name },
+                artists = artists,
                 price = "10000",
                 ticketOpen = "2025.04.01",
                 detailLink = "https://example.com/detail",
                 posterUrl = "https://example.com/poster.jpg",
                 dday = 8
-            ),
+            )
         )
     }
 

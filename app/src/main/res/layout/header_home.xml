@@ -4,8 +4,7 @@
     android:id="@+id/headerLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="16dp"
-    android:background="#FFFFFF">
+    android:paddingVertical="16dp">
 
     <!-- icon_back -->
     <ImageView
@@ -52,7 +51,7 @@
         android:textSize="20sp"
         android:lineSpacingExtra="4dp"
         android:textColor="#1c1c1e"
-        android:textStyle="bold"
+        android:fontFamily="@font/pretendard_semibold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
