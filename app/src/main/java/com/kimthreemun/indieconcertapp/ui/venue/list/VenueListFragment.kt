@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Venue
 import com.kimthreemun.indieconcertapp.ui.venue.list.VenueListAdapter
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 class VenueListFragment : Fragment() {
 
@@ -21,6 +22,8 @@ class VenueListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "공연장")
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_venues)
 
         // 샘플 데이터

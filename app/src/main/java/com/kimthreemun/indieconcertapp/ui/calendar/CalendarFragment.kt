@@ -21,6 +21,8 @@ import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
@@ -44,11 +46,13 @@ class CalendarFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "공연 캘린더")
+
         setupRecyclerView()
         setupCalendar()
         setupMonthNavigation()
         observeViewModel()
-        setupHeaderButtons()
+        //setupHeaderButtons()
         setupRegionFilter()
     }
 
@@ -64,7 +68,7 @@ class CalendarFragment : Fragment() {
         }
     }
 
-    private fun setupHeaderButtons() {
+/*    private fun setupHeaderButtons() {
         binding.btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
@@ -76,7 +80,7 @@ class CalendarFragment : Fragment() {
         binding.btnHelp.setOnClickListener {
             findNavController().navigate(R.id.action_calendarFragment_to_searchFragment)
         }
-    }
+    }*/
 
     private fun setupRegionFilter() {
         binding.layoutLocationFilter.setOnClickListener {

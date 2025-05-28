@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.FragmentMapBinding
-
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 class MapListFragment : Fragment() {
 
@@ -31,6 +31,8 @@ class MapListFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "가까운 공연 찾기")
+
         super.onViewCreated(view, savedInstanceState)
 
         adapter = MapListAdapter(getSampleData()) { performance ->

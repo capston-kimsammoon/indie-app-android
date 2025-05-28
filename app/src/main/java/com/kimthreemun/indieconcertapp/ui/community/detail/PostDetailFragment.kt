@@ -18,6 +18,8 @@ import com.kimthreemun.indieconcertapp.data.model.domain.Comment
 import com.kimthreemun.indieconcertapp.data.model.domain.Post
 import com.kimthreemun.indieconcertapp.ui.community.list.CommentAdapter
 import com.kimthreemun.indieconcertapp.ui.community.list.DummyCommentData
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -40,6 +42,7 @@ class PostDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "자유게시판")
 
         super.onViewCreated(view, savedInstanceState)
 

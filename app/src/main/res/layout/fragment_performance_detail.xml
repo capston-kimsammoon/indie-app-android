@@ -4,135 +4,143 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clRoot"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:orientation="vertical">
+        <include
+            layout="@layout/header_common"
+            android:id="@+id/commonHeader" />
 
-        <!-- 포스터 & 우측 정보 묶음 -->
-        <LinearLayout
-            android:id="@+id/sectionPosterInfo"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="20dp">
+            android:background="@color/white">
 
+            <!-- 포스터 & 우측 정보 묶음 -->
             <LinearLayout
+                android:id="@+id/sectionPosterInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="20dp">
 
-                <!-- 포스터 & 좋아요 버튼 묶음 -->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <!-- 포스터 -->
-                    <ImageView
-                        android:id="@+id/ivPoster"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/sample_poster" />
-
-                    <!-- 좋아요 -->
+                    <!-- 포스터 & 좋아요 버튼 묶음 -->
                     <LinearLayout
-                        android:id="@+id/layoutLike"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_button"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
 
-                        <ImageButton
-                            android:id="@+id/ivHeart"
+                        <!-- 포스터 -->
+                        <ImageView
+                            android:id="@+id/ivPoster"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sample_poster" />
+
+                        <!-- 좋아요 -->
+                        <LinearLayout
+                            android:id="@+id/layoutLike"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="좋아요 버튼"
-                            android:src="@drawable/ic_heart_outline" />
+                            android:layout_height="28dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_button"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
 
+                            <ImageButton
+                                android:id="@+id/ivHeart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="좋아요 버튼"
+                                android:src="@drawable/ic_heart_outline" />
+
+                            <TextView
+                                android:id="@+id/tvLikeCnt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="22"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 오른쪽 정보 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:orientation="vertical"
+                        android:paddingStart="16dp"
+                        android:gravity="top">
+
+                        <!-- D-Day -->
                         <TextView
-                            android:id="@+id/tvLikeCnt"
+                            android:id="@+id/tvDday"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="22"
-                            android:textColor="@android:color/black"
-                            android:textSize="14sp" />
+                            android:text="D-10"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/light_gray" />
+
+                        <!-- 제목 -->
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공연 제목"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/black" />
+
+                        <!-- 예매 알림 버튼 -->
+                        <LinearLayout
+                            android:id="@+id/layoutNotify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_button"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
+
+                            <TextView
+                                android:id="@+id/tvNotify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="예매알림"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:textColor="@color/black"
+                                android:padding="2dp"
+                                android:textSize="14sp"/>
+
+                            <ImageButton
+                                android:id="@+id/btnNotify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="알림 버튼"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_notify_off"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-
-                <!-- 오른쪽 정보 -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:orientation="vertical"
-                    android:paddingStart="16dp"
-                    android:gravity="top">
-
-                    <!-- D-Day -->
-                    <TextView
-                        android:id="@+id/tvDday"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="D-10"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/light_gray" />
-
-                    <!-- 제목 -->
-                    <TextView
-                        android:id="@+id/tvTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="공연 제목"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginTop="8dp"
-                        android:textColor="@color/black" />
-
-                    <!-- 예매 알림 버튼 -->
-                    <LinearLayout
-                        android:id="@+id/layoutNotify"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_button"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp">
-
-                        <TextView
-                            android:id="@+id/tvNotify"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="예매알림"
-                            android:fontFamily="@font/pretendard_regular"
-                            android:textColor="@color/black"
-                            android:padding="2dp"
-                            android:textSize="14sp"/>
-
-                        <ImageButton
-                            android:id="@+id/btnNotify"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="알림 버튼"
-                            android:padding="2dp"
-                            android:src="@drawable/ic_notify_off"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
 
         <!-- 구분선 -->
@@ -284,4 +292,5 @@
                 app:layout_constraintTop_toTopOf="@id/labelDetail" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

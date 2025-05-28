@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.core.content.ContextCompat
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
@@ -48,6 +49,8 @@ class MypageFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "설정", showMenu = false, showSearch = false)
+
         super.onViewCreated(view, savedInstanceState)
 
         btnNotification = view.findViewById(R.id.btnNotification)

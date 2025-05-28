@@ -13,7 +13,7 @@ class Performance(
     val time: String = "",
     val region: String = "",
     val address: String = "",
-    var  artists: List<Artist> = emptyList(),
+    var artists: List<Artist> = emptyList(),
     val price: String = "",
     val ticketOpenDate: String = "",
     val ticketOpenTime: String = "",
@@ -23,7 +23,7 @@ class Performance(
     val posterImageResId: Int? = null,
     var isSelected: Boolean = false,
     var isLiked: Boolean = false,
-    var likeCount: Int = 0,
+    var likeCount: Int = 1,
     var isNotified: Boolean = false
 ) : Parcelable {
 

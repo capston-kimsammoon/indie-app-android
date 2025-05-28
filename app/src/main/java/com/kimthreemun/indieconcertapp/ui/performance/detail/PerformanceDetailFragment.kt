@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.FragmentPerformanceDetailBinding
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 class PerformanceDetailFragment : Fragment() {
 
@@ -46,6 +47,8 @@ class PerformanceDetailFragment : Fragment() {
 
         // ViewModel에 전달
         viewModel.setPerformance(performance)
+
+        SetupCommonHeader(view, title = "공연")
 
         adapter = PerformanceDetailAdapter(mutableListOf()) { artist ->
             val action = PerformanceDetailFragmentDirections

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kimthreemun.indieconcertapp.databinding.FragmentFavoriteListBinding
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 class FavoriteFragment : Fragment() {
 
@@ -28,6 +29,7 @@ class FavoriteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "찜")
         super.onViewCreated(view, savedInstanceState)
 
         pagerAdapter = FavoritePagerAdapter(this)

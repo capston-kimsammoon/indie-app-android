@@ -4,107 +4,118 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clRoot"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/sectionProfileInfo"
+        <include
+            layout="@layout/header_common"
+            android:id="@+id/commonHeader" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRoot"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="16dp">
+            android:layout_height="wrap_content">
+
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/sectionProfileInfo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <FrameLayout
-                        android:id="@+id/layoutPtofile"
-                        android:layout_width="82dp"
-                        android:layout_height="82dp"
-                        android:background="@drawable/circle_border">
-
-                        <ImageView
-                            android:id="@+id/ivProfile"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_centerInParent="true"
-                            android:scaleType="centerCrop"
-                            android:layout_gravity="center"
-                            android:src="@drawable/sample_profile"
-                            android:background="@drawable/circle_border"
-                            android:clipToOutline="true" />
-                    </FrameLayout>
-
-                    <ImageView
-                        android:id="@+id/ivHeart"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignBottom="@id/layoutPtofile"
-                        android:layout_alignEnd="@id/layoutPtofile"
-                        android:src="@drawable/ic_heart_outline"
-                        android:background="@drawable/circle_border"
-                        android:contentDescription="좋아요 버튼"
-                        android:padding="4dp" />
-                </RelativeLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="16dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="16dp">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
 
-                    <TextView
-                        android:id="@+id/tvArtistName"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="리락쿠마"
-                        android:fontFamily="@font/pretendard_medium"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content">
+
+                        <FrameLayout
+                            android:id="@+id/layoutPtofile"
+                            android:layout_width="82dp"
+                            android:layout_height="82dp"
+                            android:background="@drawable/circle_border">
+
+                            <ImageView
+                                android:id="@+id/ivProfile"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center"
+                                android:src="@drawable/sample_profile"
+                                android:background="@drawable/circle_border"
+                                android:clipToOutline="true" />
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/ivHeart"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignBottom="@id/layoutPtofile"
+                            android:layout_alignEnd="@id/layoutPtofile"
+                            android:src="@drawable/ic_heart_outline"
+                            android:background="@drawable/circle_border"
+                            android:contentDescription="좋아요 버튼"
+                            android:padding="4dp" />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:id="@+id/layoutNotify"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_button"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp">
+                        android:layout_marginLeft="16dp">
 
                         <TextView
-                            android:id="@+id/tvNotify"
+                            android:id="@+id/tvArtistName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="공연알림"
-                            android:fontFamily="@font/pretendard_regular"
+                            android:text="리락쿠마"
+                            android:fontFamily="@font/pretendard_medium"
                             android:textColor="@color/black"
-                            android:padding="2dp"
-                            android:textSize="14sp"/>
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                        <ImageButton
-                            android:id="@+id/btnNotify"
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="알림 버튼"
-                            android:padding="2dp"
-                            android:src="@drawable/ic_notify_off"/>
-                    </LinearLayout>
+                            android:layout_height="28dp"
+                            android:id="@+id/layoutNotify"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_button"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
+
+                            <TextView
+                                android:id="@+id/tvNotify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="공연알림"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:textColor="@color/black"
+                                android:padding="2dp"
+                                android:textSize="14sp"/>
+
+                            <ImageButton
+                                android:id="@+id/btnNotify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="알림 버튼"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_notify_off"/>
+                        </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:id="@+id/divider"
@@ -209,5 +220,5 @@
             app:layout_constraintTop_toBottomOf="@id/labelPastPerformance"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

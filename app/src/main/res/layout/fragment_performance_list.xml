@@ -6,8 +6,8 @@
     android:orientation="vertical">
 
     <include
-        layout="@layout/header_home"
-        android:id="@+id/header" />
+        layout="@layout/header_common"
+        android:id="@+id/commonHeader" />
 
     <!-- 필터 버튼 및 캘린더 아이콘 -->
     <LinearLayout

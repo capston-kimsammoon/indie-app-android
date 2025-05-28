@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.common.util.showOptionBottomSheet
 import com.kimthreemun.indieconcertapp.databinding.FragmentPerformanceListBinding
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,6 +37,8 @@ class PerformanceListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "공연")
+
         adapter = PerformanceListAdapter(emptyList()) { performance ->
             val action = PerformanceListFragmentDirections
                 .actionPerformanceListFragmentToPerformanceDetailFragment(performance)
