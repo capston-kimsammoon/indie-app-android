@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.databinding.FragmentArtistListBinding
@@ -32,9 +33,16 @@ class ArtistListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter = ArtistListAdapter(mutableListOf()) { artistId ->
-            viewModel.toggleLike(artistId)
-        }
+        adapter = ArtistListAdapter(mutableListOf(),
+            onHeartClick = { artistId ->
+                viewModel.toggleLike(artistId)
+            },
+            onItemClick = { artist ->
+                val action = ArtistListFragmentDirections
+                    .actionArtistListFragmentToArtistDetailFragment(artist)
+                findNavController().navigate(action)
+            }
+        )
 
         binding.rvArtistLists.layoutManager = LinearLayoutManager(requireContext())
         binding.rvArtistLists.adapter = adapter

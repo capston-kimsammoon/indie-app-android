@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.kimthreemun.indieconcertapp.R
 
 import com.kimthreemun.indieconcertapp.data.model.domain.Artist
+import com.kimthreemun.indieconcertapp.data.sample.SampleArtists
 
 class ArtistListViewModel : ViewModel() {
 
@@ -13,11 +14,11 @@ class ArtistListViewModel : ViewModel() {
     val artists: LiveData<List<Artist>> get() = _artists
 
     init {
-        _artists.value = listOf(
-            Artist(1, "하츄핑", "https://example.com/image.png", R.drawable.sample_profile),
-            Artist(2, "하츄핑", "https://example.com/image.png", R.drawable.sample_profile),
+        loadArtists()
+    }
 
-            )
+    private fun loadArtists() {
+        _artists.value = SampleArtists.all
     }
 
     fun toggleLike(artistId: Int) {

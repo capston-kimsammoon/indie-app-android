@@ -11,7 +11,8 @@ import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Artist
 
 class PerformanceDetailAdapter(
-    private val artists: MutableList<Artist>
+    private val artists: MutableList<Artist>,
+    private val onItemClick: (Artist) -> Unit
 ) : RecyclerView.Adapter<PerformanceDetailAdapter.ArtistViewHolder>() {
 
     inner class ArtistViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,6 +37,10 @@ class PerformanceDetailAdapter(
             .load(imageSource)
             .circleCrop()
             .into(holder.ivProfile)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(artist)
+        }
     }
 
     override fun getItemCount(): Int = artists.size

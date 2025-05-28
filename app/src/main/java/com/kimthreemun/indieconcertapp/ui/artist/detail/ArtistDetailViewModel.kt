@@ -24,30 +24,15 @@ class ArtistDetailViewModel : ViewModel() {
     private val _isNotified = MutableLiveData(false)
     val isNotified: LiveData<Boolean> = _isNotified
 
-    fun loadArtistDetail(artistId: Int) {
-        _artist.value = Artist(
-            id = artistId,
-            name = "리락쿠마",
-            profileImageUrl = "",
-            spotifyUrl = "https://open.spotify.com",
-            instagramHandle = "@rilakkuma",
-            isLiked = false,
-            isNotified = false
-        )
+    // 목록에서 전달받은 Artist를 세팅
+    fun setArtist(artist: Artist) {
+        _artist.value = artist
+        _isLiked.value = artist.isLiked
+        _isNotified.value = artist.isNotified
 
-        scheduledPerformances.value = listOf(
-            Performance(id = 1, title = "예정 공연 A", date = "2025.06.01", posterImageResId = R.drawable.sample_poster),
-            Performance(id = 2, title = "예정 공연 B", date = "2025.06.10", posterImageResId = R.drawable.sample_poster),
-        )
-
-        pastPerformances.value = listOf(
-            Performance(id = 3, title = "지난 공연 A", date = "2025.05.10", posterImageResId = R.drawable.sample_poster),
-            Performance(id = 4, title = "지난 공연 B", date = "2025.04.20", posterImageResId = R.drawable.sample_poster),
-        )
-
-        _isLiked.value = false
-        _likeCount.value = 9
-        _isNotified.value = false
+        // TODO: artist.id 기준으로 공연 데이터 불러오기
+        scheduledPerformances.value = artist.scheduledPerformances
+        pastPerformances.value = artist.pastPerformances
     }
 
     fun toggleLike() {
