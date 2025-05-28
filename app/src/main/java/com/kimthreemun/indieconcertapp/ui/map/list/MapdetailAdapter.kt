@@ -35,7 +35,7 @@ class MapDetailAdapter(
         val performance = performances[position]
         holder.tvName.text = performance.title
         Glide.with(holder.itemView.context)
-            .load(performance.posterImageUrl)
+            .load(performance.posterUrl)
             //.circleCrop()
             .into(holder.ivPoster)
     }

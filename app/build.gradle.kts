@@ -81,6 +81,7 @@ dependencies {
 
 
     implementation("com.naver.maps:map-sdk:3.21.0")
+
     // DI & 이미지 로딩
     implementation(libs.glide)
     implementation(libs.hilt.android)

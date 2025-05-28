@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        layout="@layout/header_home"
+        android:id="@+id/header" />
+
     <!-- 필터 버튼 및 캘린더 아이콘 -->
     <LinearLayout
         android:layout_width="match_parent"
