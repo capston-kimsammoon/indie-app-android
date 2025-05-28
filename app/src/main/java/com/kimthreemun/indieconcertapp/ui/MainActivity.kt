@@ -5,10 +5,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import android.widget.ImageView
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
 import com.kimthreemun.indieconcertapp.R
+import android.content.Intent
+
 import com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment
 import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragment
 import com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment
@@ -24,12 +27,16 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var iconBack: ImageView
+    private lateinit var iconMenu: ImageView
+    private lateinit var iconSearch: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         drawerLayout = findViewById(R.id.drawer_layout)
+
         val navView: NavigationView = findViewById(R.id.navigation_view)
 
         val navHostFragment =
@@ -83,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openDrawer() {
-        drawerLayout.openDrawer(GravityCompat.START)f
+        drawerLayout.openDrawer(GravityCompat.START)
     }
 
     override fun onSupportNavigateUp(): Boolean {
