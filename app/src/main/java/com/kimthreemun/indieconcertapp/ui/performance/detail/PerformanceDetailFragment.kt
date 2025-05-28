@@ -1,5 +1,4 @@
 package com.kimthreemun.indieconcertapp.ui.performance.detail
-import android.util.Log
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
+import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragmentDirections
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.FragmentPerformanceDetailBinding
-import com.kimthreemun.indieconcertapp.data.model.domain.Artist
 
 class PerformanceDetailFragment : Fragment() {
 
@@ -20,6 +22,12 @@ class PerformanceDetailFragment : Fragment() {
 
     private val viewModel: PerformanceDetailViewModel by viewModels()
     private lateinit var adapter: PerformanceDetailAdapter
+
+    private val args: PerformanceDetailFragmentArgs by navArgs()
+
+    private val radiusPx by lazy {
+        (16 * resources.displayMetrics.density).toInt()  // 16dp를 px로 변환
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,33 +41,46 @@ class PerformanceDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = PerformanceDetailAdapter(mutableListOf())
+        // navArgs에서 넘겨받은 Performance 객체 받기
+        val performance = args.performance
+
+        // ViewModel에 전달
+        viewModel.setPerformance(performance)
+
+        adapter = PerformanceDetailAdapter(mutableListOf()) { artist ->
+            val action = PerformanceDetailFragmentDirections
+                .actionPerformanceDetailFragmentToArtistDetailFragment(artist)
+            findNavController().navigate(action)
+        }
+
         binding.rvArtists.adapter = adapter
         binding.rvArtists.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        viewModel.loadPerformanceDetail(performanceId = 1)
+        // ViewModel 관찰
+        viewModel.performanceDetail.observe(viewLifecycleOwner) { performanceDetail ->
+            // UI에 데이터 바인딩
+            adapter.setData(performanceDetail.artists)
 
-        viewModel.performanceDetail.observe(viewLifecycleOwner) { performance ->
-            adapter.setData(performance.artists)
-            // 기타 텍스트 바인딩 추가 가능
-        }
+            binding.tvTitle.text = performanceDetail.title
+            binding.tvVenue.text = performanceDetail.venue
+            binding.tvDate.text = performanceDetail.date
+            binding.tvLikeCnt.text = performanceDetail.likeCount.toString()
 
-        viewModel.isLiked.observe(viewLifecycleOwner) { liked ->
             binding.ivHeart.setImageResource(
-                if (liked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
+                if (performanceDetail.isLiked) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
             )
-        }
 
-        viewModel.likeCount.observe(viewLifecycleOwner) { count ->
-            binding.tvLikeCnt.text = count.toString()
-        }
+            binding.btnNotify.setImageResource(
+                if (performanceDetail.isNotified) R.drawable.ic_notify_on else R.drawable.ic_notify_off
+            )
 
-        viewModel.isNotified.observe(viewLifecycleOwner) { notified ->
-            binding.btnNotify.apply {
-                setImageResource(
-                    if (notified) R.drawable.ic_notify_on else R.drawable.ic_notify_off
-                )
-            }
+            // Glide 로 포스터 이미지도 넣기
+            Glide.with(binding.root)
+                .load(performanceDetail.posterUrl)
+                .transform(RoundedCorners(radiusPx))
+                .into(binding.ivPoster)
+
+
         }
 
         binding.ivHeart.setOnClickListener {
@@ -68,10 +89,6 @@ class PerformanceDetailFragment : Fragment() {
 
         binding.btnNotify.setOnClickListener {
             viewModel.toggleNotify()
-        }
-
-        binding.tvVenue.setOnClickListener {
-//            Toast.makeText(requireContext(), "공연장 상세 이동 예정", Toast.LENGTH_SHORT).show()
         }
     }
 

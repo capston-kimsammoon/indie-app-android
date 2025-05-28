@@ -24,7 +24,7 @@ class FavoritePerformanceAdapter(
             binding.tvDate.text = performance.date
 
             Glide.with(binding.root.context)
-                .load(performance.posterImageResId) // 이건 URL 또는 resId 로직에 따라 조절
+                .load(performance.posterUrl) // 이건 URL 또는 resId 로직에 따라 조절
                 .placeholder(R.drawable.sample_poster)
                 .error(R.drawable.sample_poster)
                 .into(binding.imgPoster)

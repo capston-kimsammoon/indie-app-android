@@ -11,7 +11,8 @@ import com.kimthreemun.indieconcertapp.databinding.ItemFavoriteArtistBinding
 class FavoriteArtistAdapter(
     private var items: List<Artist>,
     private val onHeartClick: (Artist) -> Unit,
-    private val onNotifyClick: (Artist) -> Unit
+    private val onNotifyClick: (Artist) -> Unit,
+    private val onItemClick: (Artist) -> Unit
 ) : RecyclerView.Adapter<FavoriteArtistAdapter.FavoriteArtistViewHolder>() {
 
     inner class FavoriteArtistViewHolder(private val binding: ItemFavoriteArtistBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -19,7 +20,7 @@ class FavoriteArtistAdapter(
             binding.tvArtistName.text = item.name
 
             Glide.with(binding.root.context)
-                .load(item.profileImageResId ?: R.drawable.sample_profile)
+                .load(item.profileImageUrl)
                 .placeholder(R.drawable.sample_profile)
                 .error(R.drawable.sample_profile)
                 .circleCrop()
@@ -37,8 +38,13 @@ class FavoriteArtistAdapter(
                 onHeartClick(item)
             }
 
+
             binding.btnNotify.setOnClickListener {
                 onNotifyClick(item)
+            }
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
             }
         }
     }

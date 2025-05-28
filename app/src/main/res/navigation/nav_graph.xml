@@ -25,10 +25,10 @@
             app:destination="@id/searchFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/bookmarkFragment"
-        android:name="com.kimthreemun.indieconcertapp.ui.bookmark.BookmarkFragment"
-        android:label="찜 목록" />
+<!--    <fragment-->
+<!--        android:id="@+id/bookmarkFragment"-->
+<!--        android:name="com.kimthreemun.indieconcertapp.ui.bookmark.BookmarkFragment"-->
+<!--        android:label="찜 목록" />-->
 
     <fragment
         android:id="@+id/notificationFragment"
@@ -37,13 +37,42 @@
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.kimthreemun.indieconcertapp.ui.mypage.mypageFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.mypage.MypageFragment"
         android:label="마이페이지" />
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment"
+        android:label="찜 목록">
+        <action
+            android:id="@+id/action_favoriteFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/performanceListFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment"
-        android:label="공연 목록" />
+        android:label="공연 목록">
+        <action
+            android:id="@+id/action_performanceListFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/performanceDetailFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragment"
+        android:label="공연 상세">
+        <argument
+            android:name="performance"
+            app:argType="com.kimthreemun.indieconcertapp.data.model.domain.Performance" />
+        <action
+            android:id="@+id/action_performanceDetailFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/venueListFragment"
@@ -53,7 +82,23 @@
     <fragment
         android:id="@+id/artistListFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment"
-        android:label="아티스트 목록" />
+        android:label="아티스트 목록" >
+        <action
+            android:id="@+id/action_artistListFragment_to_artistDetailFragment"
+            app:destination="@id/artistDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/artistDetailFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailFragment"
+        android:label="아티스트 상세">
+        <argument
+            android:name="artist"
+            app:argType="com.kimthreemun.indieconcertapp.data.model.domain.Artist" />
+        <action
+            android:id="@+id/action_artistDetailFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/postListFragment"

@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         val headerView = navView.getHeaderView(0)
 
         headerView.findViewById<View>(R.id.tvLike)?.setOnClickListener {
-            navController.navigate(R.id.bookmarkFragment)
+            navController.navigate(R.id.favoriteFragment)
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 

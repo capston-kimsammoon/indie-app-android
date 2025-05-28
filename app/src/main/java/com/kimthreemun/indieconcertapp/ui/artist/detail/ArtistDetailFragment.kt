@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.FragmentArtistDetailBinding
 import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailAdapter
+import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +27,8 @@ class ArtistDetailFragment : Fragment() {
     private lateinit var scheduledAdapter: ArtistDetailAdapter
     private lateinit var pastAdapter: ArtistDetailAdapter
 
+    private val args: ArtistDetailFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,17 +41,27 @@ class ArtistDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val artist = args.artist
+
         setupRecyclerViews()
         setupListeners()
         observeViewModel()
 
-        // 실제 artistId 받아오는 코드로 대체 필요
-        viewModel.loadArtistDetail(artistId = 1)
+        viewModel.setArtist(artist)
     }
 
     private fun setupRecyclerViews() {
-        scheduledAdapter = ArtistDetailAdapter(mutableListOf())
-        pastAdapter = ArtistDetailAdapter(mutableListOf())
+        scheduledAdapter = ArtistDetailAdapter(mutableListOf()) { performance ->
+            val action = ArtistDetailFragmentDirections
+                .actionArtistDetailFragmentToPerformanceDetailFragment(performance)
+            findNavController().navigate(action)
+        }
+
+        pastAdapter = ArtistDetailAdapter(mutableListOf()) { performance ->
+            val action = ArtistDetailFragmentDirections
+                .actionArtistDetailFragmentToPerformanceDetailFragment(performance)
+            findNavController().navigate(action)
+        }
 
         binding.rvScheduledPerformances.apply {
             adapter = scheduledAdapter
@@ -58,6 +73,7 @@ class ArtistDetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
+
 
     private fun setupListeners() {
         binding.ivHeart.setOnClickListener {
