@@ -15,6 +15,8 @@ import com.kimthreemun.indieconcert.ui.home.adapter.NewConcertAdapter
 import com.kimthreemun.indieconcert.ui.home.adapter.RecommendedArtistAdapter
 import com.kimthreemun.indieconcert.ui.home.adapter.TicketOpenAdapter
 import com.kimthreemun.indieconcert.ui.home.adapter.WeeklyConcertAdapter
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+
 import com.kimthreemun.indieconcertapp.R
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.core.view.GravityCompat
@@ -43,23 +45,25 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "", showBack = false)
+
         super.onViewCreated(view, savedInstanceState)
 
-        println("✅ HomeFragment onViewCreated 호출됨")
+//        println("✅ HomeFragment onViewCreated 호출됨")
 
         setupDateText()
         setupClickListeners()
         setupAdapters()
 
         viewModel.concerts.observe(viewLifecycleOwner) { list ->
-            println("🎯 concerts 데이터 개수: ${list.size}")
+//            println("🎯 concerts 데이터 개수: ${list.size}")
             weeklyAdapter.submitList(list)
             newAdapter.submitList(list)
             recommendedAdapter.submitList(list)
         }
 
         viewModel.ticketOpenConcerts.observe(viewLifecycleOwner) { list ->
-            println("🎯 ticketOpenConcerts 데이터 개수: ${list.size}")
+//            println("🎯 ticketOpenConcerts 데이터 개수: ${list.size}")
             ticketAdapter.submitList(list)
         }
     }
@@ -72,14 +76,14 @@ class HomeFragment : Fragment() {
 
     private fun setupClickListeners() {
         // ✅ 사이드 메뉴 열기
-        binding.iconHamburger.setOnClickListener {
+        /*binding.iconHamburger.setOnClickListener {
             val drawer = requireActivity().findViewById<DrawerLayout>(R.id.drawer_layout)
             drawer.openDrawer(GravityCompat.START)
         }
 
         binding.iconQ.setOnClickListener {
             findNavController().navigate(R.id.searchFragment)
-        }
+        }*/
 
         binding.layoutCalendar.setOnClickListener {
             findNavController().navigate(R.id.calendarFragment)

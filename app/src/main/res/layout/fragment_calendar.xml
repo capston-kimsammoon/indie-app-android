@@ -12,50 +12,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- ✅ 타이틀 바 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:paddingHorizontal="16dp">
-
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="15dp"
-                android:layout_height="24dp"
-                android:src="@drawable/icon_back"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:contentDescription="뒤로가기" />
-
-            <ImageView
-                android:id="@+id/btnHamburger"
-                android:layout_width="20dp"
-                android:layout_height="18dp"
-                android:src="@drawable/icon_hamburger"
-                android:layout_toEndOf="@id/btnBack"
-                android:layout_marginStart="16dp"
-                android:layout_centerVertical="true"
-                android:contentDescription="햄버거" />
-
-            <TextView
-                android:id="@+id/titleCalendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="공연 캘린더"
-                android:textSize="16sp"
-                android:textColor="#1C1C1E"
-                android:textStyle="bold"
-                android:layout_centerInParent="true" />
-
-            <ImageView
-                android:id="@+id/btnHelp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/icon_q"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:contentDescription="도움말" />
-        </RelativeLayout>
+        <include
+            layout="@layout/header_common"
+            android:id="@+id/commonHeader" />
 
         <!-- ✅ 월 <5월> + 지역 -->
         <RelativeLayout

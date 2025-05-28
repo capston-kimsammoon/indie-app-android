@@ -11,7 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 import com.kimthreemun.indieconcertapp.databinding.FragmentArtistDetailBinding
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+
 import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailAdapter
 import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,6 +42,8 @@ class ArtistDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "아티스트")
+
         super.onViewCreated(view, savedInstanceState)
 
         val artist = args.artist

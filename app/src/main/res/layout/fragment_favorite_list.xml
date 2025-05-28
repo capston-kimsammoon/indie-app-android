@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        layout="@layout/header_common"
+        android:id="@+id/commonHeader" />
+
     <!-- 탭 -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabFavorites"

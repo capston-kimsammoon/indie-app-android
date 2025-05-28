@@ -15,6 +15,7 @@ import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.FragmentVenueDetailBinding
 import com.kimthreemun.indieconcertapp.ui.venue.detail.VenueDetailViewModel
 import com.kimthreemun.indieconcertapp.ui.venue.detail.VenueDetailAdapter
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 @AndroidEntryPoint
 class VenueDetailFragment : Fragment() {
@@ -36,6 +37,7 @@ class VenueDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "공연장")
         super.onViewCreated(view, savedInstanceState)
 
         scheduledAdapter = VenueDetailAdapter(mutableListOf())

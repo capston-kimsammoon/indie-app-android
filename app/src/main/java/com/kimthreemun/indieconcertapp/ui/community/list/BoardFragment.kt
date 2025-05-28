@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Post
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 
 class BoardFragment : Fragment() {
@@ -29,7 +30,9 @@ class BoardFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<TextView>(R.id.headerTitle).text = "자유게시판"
+        SetupCommonHeader(view, title = "자유게시판")
+
+//        view.findViewById<TextView>(R.id.headerTitle).text = "자유게시판"
 
         // 뒤로가기 버튼 동작 설정
         view.findViewById<ImageView>(R.id.iconBack).setOnClickListener {

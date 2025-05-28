@@ -16,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kimthreemun.indieconcertapp.R
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 class SearchFragment : Fragment() {
 
@@ -34,8 +35,10 @@ class SearchFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "검색", showSearch = false)
+
         etSearch = view.findViewById(R.id.et_search)
-        btnBack = view.findViewById(R.id.btn_back)
+//        btnBack = view.findViewById(R.id.btn_back)
         layoutRecentKeywords = view.findViewById(R.id.layout_recent_keywords)
         viewPager = view.findViewById(R.id.view_pager)
         tabLayout = view.findViewById(R.id.layout_tabs)
@@ -54,9 +57,9 @@ class SearchFragment : Fragment() {
         }.attach()
 
         // 뒤로가기 동작
-        btnBack.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
+//        btnBack.setOnClickListener {
+//            requireActivity().onBackPressedDispatcher.onBackPressed()
+//        }
 
         // 검색어 입력 감지
         etSearch.addTextChangedListener(object : TextWatcher {

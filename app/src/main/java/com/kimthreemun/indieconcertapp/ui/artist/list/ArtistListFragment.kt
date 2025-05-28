@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kimthreemun.indieconcertapp.databinding.FragmentArtistListBinding
+import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
@@ -33,6 +35,7 @@ class ArtistListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SetupCommonHeader(view, title = "아티스트")
         adapter = ArtistListAdapter(mutableListOf(),
             onHeartClick = { artistId ->
                 viewModel.toggleLike(artistId)
