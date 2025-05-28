@@ -36,6 +36,12 @@ class BoardFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
+        // 검색 아이콘 클릭 시 검색 페이지로 이동
+        view.findViewById<ImageView>(R.id.iconSearch).setOnClickListener {
+            findNavController().navigate(R.id.searchFragment)
+        }
+
+
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.recyclerViewPosts)

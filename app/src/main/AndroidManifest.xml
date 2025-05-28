@@ -17,6 +17,10 @@
         android:theme="@style/Theme.IndieConcertApp"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="hmbz4hrmrx" />
+
         <!-- ✅ 테스트용 테마 오버라이드 -->
         <activity
             android:name=".ui.MainActivity"

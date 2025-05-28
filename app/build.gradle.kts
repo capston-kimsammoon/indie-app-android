@@ -72,9 +72,10 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
 
+
+    implementation("com.naver.maps:map-sdk:3.21.0")
     // DI & 이미지 로딩
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
