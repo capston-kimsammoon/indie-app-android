@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.kapt) // ✅ 정확한 alias
     alias(libs.plugins.dagger.hilt.android)
+    id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -40,7 +42,7 @@ android {
 
     buildFeatures {
         viewBinding = true
-        dataBinding = false
+        dataBinding = true
         compose = true
     }
 }

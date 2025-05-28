@@ -15,7 +15,7 @@ import java.util.*
 
 class ArtistDetailAdapter(
     private var performances: MutableList<Performance>,
-    private val onItemClick: ((Performance) -> Unit)? = null
+    private val onItemClick: (Performance) -> Unit
 ) : RecyclerView.Adapter<ArtistDetailAdapter.PerformanceViewHolder>() {
 
     inner class PerformanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -39,6 +39,10 @@ class ArtistDetailAdapter(
             .placeholder(R.drawable.sample_poster)
             .error(R.drawable.sample_poster)
             .into(holder.ivPoster)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(performance)
+        }
     }
 
     override fun getItemCount(): Int = performances.size

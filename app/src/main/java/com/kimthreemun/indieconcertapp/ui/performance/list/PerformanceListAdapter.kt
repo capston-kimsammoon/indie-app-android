@@ -35,10 +35,10 @@ class PerformanceListAdapter(
         holder.venue.text = performance.venue
         holder.date.text = performance.date
 
-//        Glide.with(holder.poster.context)
-//            .load(performance.imageUrl)
-//            .placeholder(R.drawable.sample_poster)  // 이미지 로딩 전 기본 이미지 (sample_poster.png를 drawable에 넣으세요)
-//            .into(holder.poster)
+        Glide.with(holder.poster.context)
+            .load(performance.posterUrl)
+            .placeholder(R.drawable.sample_poster)  // 이미지 로딩 전 기본 이미지 (sample_poster.png를 drawable에 넣으세요)
+            .into(holder.poster)
 
         holder.itemView.setOnClickListener {
             onItemClick(performance)
