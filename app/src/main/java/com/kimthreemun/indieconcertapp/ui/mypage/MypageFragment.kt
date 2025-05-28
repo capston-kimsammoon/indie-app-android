@@ -111,7 +111,7 @@ class MypageFragment : Fragment() {
                     tvUserName.text = newName
                     dialog.dismiss()
                 } else {
-                    Toast.makeText(requireContext(), "이름을 입력하세요", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
