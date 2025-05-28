@@ -9,7 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-        maven(url = "https://jitpack.io") // 옵션
+        maven(url = "https://jitpack.io")
     }
 }
 
@@ -20,6 +20,8 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://repository.map.naver.com/archive/maven")
         maven(url = "https://jitpack.io") // 옵션
+        maven(url = "https://repository.map.naver.com/archive/maven")
+
     }
 }
 

@@ -11,6 +11,7 @@
         android:id="@+id/bg_card"
         android:layout_width="0dp"
         android:layout_height="136dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/bg_select_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +84,6 @@
         android:maxLines="1"
         android:ellipsize="end"
         app:layout_constraintStart_toEndOf="@id/iv_poster"
-
         app:layout_constraintBottom_toTopOf="@id/tv_address" />
 
     <!-- > 아이콘 -->
@@ -96,7 +96,6 @@
         android:contentDescription="@string/move"
         android:src="@drawable/icon_move"
         app:layout_constraintStart_toEndOf="@id/tv_venue"
-
         app:layout_constraintTop_toTopOf="@id/tv_venue"
         app:layout_constraintBottom_toBottomOf="@id/tv_venue" />
 

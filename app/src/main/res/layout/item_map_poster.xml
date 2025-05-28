@@ -53,6 +53,4 @@
         app:layout_constraintStart_toStartOf="@id/iv_poster"
         app:layout_constraintEnd_toEndOf="@id/iv_poster" />
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

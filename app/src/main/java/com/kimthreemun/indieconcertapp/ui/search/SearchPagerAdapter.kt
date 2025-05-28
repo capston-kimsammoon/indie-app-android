@@ -3,15 +3,23 @@ package com.kimthreemun.indieconcertapp.ui.search
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.fragment.app.FragmentActivity
+import com.kimthreemun.indieconcertapp.ui.search.ArtistSearchFragment
+import com.kimthreemun.indieconcertapp.ui.search.BoardSearchFragment
+import com.kimthreemun.indieconcertapp.ui.search.ShowSearchFragment
+//import com.kimthreemun.indieconcertapp.ui.search.VenueSearchFragment
 
-class SearchPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int = 4
+class SearchPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
-    override fun createFragment(position: Int): Fragment = when (position) {
-      //  0 -> PerformanceVenueFragment()
-        1 -> ArtistFragment()
-        //2 -> CommunityFragment()
-        //3 -> RecentSearchFragment()
-        else -> throw IllegalStateException("Invalid tab position")
+    override fun getItemCount(): Int = 3
+
+    override fun createFragment(position: Int): Fragment {
+        return when (position) {
+            0 -> ShowSearchFragment()
+           // 1 -> VenueSearchFragment()
+            1 -> ArtistSearchFragment()
+            2 -> BoardSearchFragment()
+            else -> throw IllegalArgumentException("Invalid position: $position")
+        }
     }
 }

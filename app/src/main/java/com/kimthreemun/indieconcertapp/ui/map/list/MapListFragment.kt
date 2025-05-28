@@ -12,6 +12,7 @@ import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.FragmentMapBinding
 
+
 class MapListFragment : Fragment() {
 
     private var _binding: FragmentMapBinding? = null
@@ -27,6 +28,7 @@ class MapListFragment : Fragment() {
         _binding = FragmentMapBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

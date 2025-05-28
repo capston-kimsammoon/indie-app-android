@@ -134,7 +134,7 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.kimthreemun.indieconcertapp.ui.map.MapFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.map.list.MapListFragment"
         android:label="가까운 공연 찾기" />
 
 

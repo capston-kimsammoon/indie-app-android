@@ -21,13 +21,16 @@ class MapListAdapter(
         private const val TYPE_SELECT_ROW = 1
     }
 
+
     // 줄 단위로 묶은 리스트
     private val rows = mutableListOf<RowItem>()
     private var selectedRowPosition: Int? = null
 
+
     init {
         updateData(performances)
     }
+
 
     // Row 데이터 모델
     sealed class RowItem {
@@ -35,12 +38,14 @@ class MapListAdapter(
         data class SelectRow(val performance: Performance) : RowItem()
     }
 
+
     override fun getItemViewType(position: Int): Int {
         return when (rows[position]) {
             is RowItem.PosterRow -> TYPE_POSTER_ROW
             is RowItem.SelectRow -> TYPE_SELECT_ROW
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -50,17 +55,21 @@ class MapListAdapter(
                 PosterRowViewHolder(view)
             }
 
+
             TYPE_SELECT_ROW -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_map_select, parent, false)
                 SelectRowViewHolder(view)
             }
 
+
             else -> throw IllegalArgumentException("Invalid viewType")
         }
     }
 
+
     override fun getItemCount(): Int = rows.size
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val item = rows[position]) {
@@ -68,6 +77,7 @@ class MapListAdapter(
             is RowItem.SelectRow -> (holder as SelectRowViewHolder).bind(item.performance)
         }
     }
+
 
     inner class PosterRowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(performances: List<Performance>) {
@@ -77,19 +87,23 @@ class MapListAdapter(
                 itemView.findViewById(R.id.map_poster3)
             )
 
+
             posterViews.forEachIndexed { index, view ->
                 if (index < performances.size) {
                     val performance = performances[index]
 
+
                     val imageView = view.findViewById<ImageView>(R.id.iv_poster)
                     val venue = view.findViewById<TextView>(R.id.tv_venue)
                     val time = view.findViewById<TextView>(R.id.tv_time)
+
 
                     venue.text = performance.venue
                     time.text = performance.time
                     Glide.with(view.context)
                         .load(performance.posterImageResId ?: R.drawable.sample_poster)
                         .into(imageView)
+
 
                     view.setOnClickListener {
                         val rowPos = bindingAdapterPosition
@@ -108,6 +122,7 @@ class MapListAdapter(
                         }
                     }
 
+
                     view.visibility = View.VISIBLE
                 } else {
                     view.visibility = View.INVISIBLE
@@ -115,6 +130,7 @@ class MapListAdapter(
             }
         }
     }
+
 
 
     inner class SelectRowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -130,6 +146,7 @@ class MapListAdapter(
                 .into(itemView.findViewById(R.id.iv_poster))
         }
     }
+
 
     fun updateData(newPerformances: List<Performance>) {
         performances = newPerformances

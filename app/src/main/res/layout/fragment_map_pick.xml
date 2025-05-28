@@ -1,64 +1,125 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingVertical="0dp"
+    android:paddingHorizontal="0dp">
+  
+  
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <!-- 포스터 이미지 -->
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:outlineProvider="background"
+        android:contentDescription="@string/poster_img"
+        android:src="@drawable/poster_sample2"
+        android:background="@drawable/style_img_corner"
+        android:clipToOutline="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- 공연명 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" >
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="우주넘어 ‘Beyond Universe'"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/iv_poster"
+        app:layout_constraintTop_toTopOf="@id/iv_poster"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
-        <!-- 지도 -->
-        <FrameLayout
-            android:id="@+id/map_container"
-            android:layout_width="match_parent"
-            android:layout_height="248dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="#CCCCCC" />
-
-
-        <!-- 현재 시간 텍스트 -->
-        <TextView
-            android:id="@+id/tv_time_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text=""
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
-            android:textSize="16sp"
-            android:textColor="#1C1C1E"
-            android:fontFamily="@font/pretendard_semibold"
-            tools:text="오후 4시 30분 이후 공연" />
-    </LinearLayout>
-
-
-    <!-- 구분선 -->
-    <include layout="@layout/divider_line" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- 공연 시간 -->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" >
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="오후 4시 30분"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:fontFamily="@font/pretendard_regular"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@id/iv_poster"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
-        <!-- 공연 상세 -->
-        <include
-            layout="@layout/item_map_pick"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+    <!-- 공연장명 -->
+    <TextView
+        android:id="@+id/tv_venue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="4dp"
+        android:text="언드"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/iv_poster"
+        app:layout_constraintBottom_toTopOf="@id/tv_address" />
 
-        <!-- 공연 상세 -->
-    </LinearLayout>
-</LinearLayout>
+
+    <!-- > 아이콘 -->
+    <ImageView
+        android:id="@+id/btn_more"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/move"
+        android:src="@drawable/icon_move"
+        app:layout_constraintStart_toEndOf="@id/tv_venue"
+        app:layout_constraintTop_toTopOf="@id/tv_venue"
+        app:layout_constraintBottom_toBottomOf="@id/tv_venue" />
+
+
+    <!-- 공연장 주소 -->
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="4dp"
+        android:text="경남 거제시 거제대로 3734 지하1층 언드"
+        android:textColor="@color/dark_gray"
+        android:textSize="12sp"
+        android:fontFamily="@font/pretendard_regular"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintStart_toEndOf="@id/iv_poster"
+        app:layout_constraintBottom_toBottomOf="@id/iv_poster" />
+
+
+    <!-- 복사 아이콘 -->
+    <ImageView
+        android:id="@+id/btn_copy"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/copy"
+        android:src="@drawable/icon_copy"
+        app:layout_constraintStart_toEndOf="@id/tv_address"
+        app:layout_constraintTop_toTopOf="@id/tv_address"
+        app:layout_constraintBottom_toBottomOf="@id/tv_address" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

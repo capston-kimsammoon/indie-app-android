@@ -12,9 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- ✅ 공통 헤더 -->
-        <include layout="@layout/header_home" />
-
         <!-- ✅ 타이틀 바 -->
         <RelativeLayout
             android:layout_width="match_parent"

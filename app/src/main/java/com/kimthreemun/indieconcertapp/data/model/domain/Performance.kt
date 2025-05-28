@@ -19,6 +19,7 @@ class Performance(
     val ticketOpenTime: String = "",
     val detailLink: String = "",
     val posterUrl: String = "",
+    val address: String = "",
     val dday: Int = 0,
     val posterImageResId: Int? = null,
     var isSelected: Boolean = false,

@@ -1,5 +1,6 @@
 package com.kimthreemun.indieconcertapp.ui.map.list
 
+
 import android.content.Context
 import android.graphics.Rect
 import android.view.View

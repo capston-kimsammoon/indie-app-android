@@ -27,8 +27,10 @@ class MapListSetAdapter(
         return PosterViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
         val performance = posters[position]
+
 
         holder.venue.text = performance.venue
         holder.time.text = performance.time
