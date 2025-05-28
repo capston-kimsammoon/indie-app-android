@@ -1,0 +1,36 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="top"
+    android:paddingHorizontal="8dp"
+    android:paddingBottom="4dp">
+
+
+    <include
+        android:id="@+id/map_poster1"
+        layout="@layout/item_map_poster" />
+
+
+    <Space
+        android:layout_width="24dp"
+        android:layout_height="wrap_content" />
+
+
+    <include
+        android:id="@+id/map_poster2"
+        layout="@layout/item_map_poster" />
+
+
+    <Space
+        android:layout_width="24dp"
+        android:layout_height="wrap_content" />
+
+
+    <include
+        android:id="@+id/map_poster3"
+        layout="@layout/item_map_poster" />
+
+
+</LinearLayout>
