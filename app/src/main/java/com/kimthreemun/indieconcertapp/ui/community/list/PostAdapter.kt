@@ -31,7 +31,8 @@ class PostAdapter(
             itemView.findViewById<TextView>(R.id.postTitle).text = post.title
             itemView.findViewById<TextView>(R.id.postContent).text = post.content
 
-            val infoText = "${post.nickname} · 댓글 ${post.commentCount} · ${post.createdAt}"
+            val commentCount = DummyCommentData.getCommentCountForPost(post.id)
+            val infoText = "${post.nickname} · 댓글 $commentCount · ${post.createdAt}"
             itemView.findViewById<TextView>(R.id.postInfo).text = infoText
 
             val imageView = itemView.findViewById<ImageView>(R.id.postImage)
@@ -39,6 +40,7 @@ class PostAdapter(
                 imageView.visibility = View.VISIBLE
                 Glide.with(itemView)
                     .load(post.imageUrl)
+                    .centerCrop() // 이거 꼭 필요함!
                     .into(imageView)
             } else {
                 imageView.visibility = View.GONE
@@ -58,6 +60,4 @@ class PostAdapter(
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
-
 }

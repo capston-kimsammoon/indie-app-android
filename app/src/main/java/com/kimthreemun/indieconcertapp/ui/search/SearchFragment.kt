@@ -50,8 +50,9 @@ class SearchFragment : Fragment() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "공연"
-                1 -> "아티스트"
-                2 -> "자유게시판"
+                1 -> "공연장"
+                2 -> "아티스트"
+                3 -> "자유게시판"
                 else -> ""
             }
         }.attach()

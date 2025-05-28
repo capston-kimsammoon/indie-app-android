@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,46 +5,62 @@
     android:layout_height="wrap_content"
     android:padding="12dp">
 
+    <!-- 게시물 이미지 (오른쪽) -->
+    <ImageView
+        android:id="@+id/imgPostThumbnail"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:contentDescription="게시물 이미지"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- 제목 -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:text="공연 후기 제목"
         android:textSize="14sp"
         android:textColor="#222222"
         android:textStyle="bold"
-        android:maxLines="1"
-        android:ellipsize="end"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/imgPostThumbnail"
+        app:layout_constraintHorizontal_bias="0" />
 
-    <!-- 간단한 내용 or 설명 -->
+    <!-- 내용 -->
     <TextView
         android:id="@+id/tvContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="간단한 내용 미리보기입니다."
-        android:textSize="13sp"
-        android:textColor="#444444"
         android:maxLines="1"
         android:ellipsize="end"
+        android:text="간단한 내용입니다."
+        android:textSize="13sp"
+        android:textColor="#444444"
+        android:layout_marginTop="4dp"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp" />
+        app:layout_constraintEnd_toStartOf="@id/imgPostThumbnail" />
 
-    <!-- 하단: 날짜 / 닉네임 / 댓글 수 -->
+    <!-- 작성자, 날짜, 댓글 -->
     <LinearLayout
         android:id="@+id/llBottomInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/tvContent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toStartOf="@id/imgPostThumbnail"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/tvDate"
@@ -59,7 +74,7 @@
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  · 닉네임"
+            android:text=" · 인디붐"
             android:textSize="12sp"
             android:textColor="#999999" />
 
@@ -67,10 +82,9 @@
             android:id="@+id/tvCommentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  · 💬 3"
+            android:text=" · 💬 2"
             android:textSize="12sp"
             android:textColor="#999999" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

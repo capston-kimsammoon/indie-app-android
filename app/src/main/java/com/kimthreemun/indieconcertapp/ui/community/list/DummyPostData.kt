@@ -31,7 +31,7 @@ object DummyPostData {
             createdAt = "05/11",
             title = "오방가르드 공연 후기",
             content = "어제 오방가르드 공연 보고 왔늗네 너무너무 만족했어요... 다음주에 김현진 보러 가야즼",
-            imageUrl = null,
+            imageUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MjBfMjQw%2FMDAxNzEzNTk1MzQ0ODc0.iu2PiQFFRrsCkHwtySfreb5AIlErnbOQK4Nm_KZkSSYg.Qci9EUP2JOK6PuBkf1vMA2-EWfhUO5kAJxwlfV2sldYg.JPEG%2FIMG_3234.jpg&type=sc960_832",
             commentCount = 2
         ),
         Post(

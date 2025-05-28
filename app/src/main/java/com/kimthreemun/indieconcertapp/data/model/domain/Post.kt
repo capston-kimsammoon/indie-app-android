@@ -12,6 +12,6 @@ data class Post(
     val createdAt: String,
     val title: String,
     val content: String,
-    val imageUrl: String?,
-    val commentCount: Int
+    val commentCount: Int,
+    val imageUrl: String? = null
 ) : Parcelable
