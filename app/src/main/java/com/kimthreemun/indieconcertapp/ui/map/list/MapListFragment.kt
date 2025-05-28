@@ -1,6 +1,5 @@
 package com.kimthreemun.indieconcertapp.ui.map.list
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,13 +15,10 @@ import com.kimthreemun.indieconcertapp.databinding.FragmentMapBinding
 
 class MapListFragment : Fragment() {
 
-
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
 
-
     private lateinit var adapter: MapListAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,27 +33,21 @@ class MapListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         adapter = MapListAdapter(getSampleData()) { performance ->
             Log.d("MapList", "Clicked: ${performance.title}")
         }
 
-
         binding.rvPosters.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
 
         binding.rvPosters.adapter = adapter
 
-
         binding.tvTimeInfo.text = getCurrentTimeText()
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 
     private fun getSampleData(): List<Performance> {
         return listOf(
@@ -84,20 +74,16 @@ class MapListFragment : Fragment() {
         )
     }
 
-
     private fun getCurrentTimeText(): String {
         val timeZone = java.util.TimeZone.getTimeZone("Asia/Seoul")
         val calendar = java.util.Calendar.getInstance(timeZone)
 
-
         val hour = calendar.get(java.util.Calendar.HOUR_OF_DAY)
         val minute = calendar.get(java.util.Calendar.MINUTE)
-
 
         val period = if (hour < 12) "오전" else "오후"
         val formattedHour = if (hour % 12 == 0) 12 else hour % 12
         val formattedMinute = if (minute < 10) "0$minute" else "$minute"
-
 
         return "$period ${formattedHour}시 ${formattedMinute}분 이후 공연"
     }

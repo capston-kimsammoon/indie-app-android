@@ -1,6 +1,5 @@
 package com.kimthreemun.indieconcertapp.ui.venue.list
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +11,7 @@ import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Venue
 import com.kimthreemun.indieconcertapp.ui.venue.list.VenueListAdapter
 
-
 class VenueListFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +20,8 @@ class VenueListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_venue_list, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_venues)
-
 
         // 샘플 데이터
         val venues = listOf(
@@ -47,7 +42,6 @@ class VenueListFragment : Fragment() {
             Venue(id = 15, name = "ASIA CRIME SAD", profileImageResId = R.drawable.venue_profile15),
             Venue(id = 16, name = "SUBRIOT HBC", profileImageResId = R.drawable.venue_profile16),
         )
-
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = VenueListAdapter(venues)

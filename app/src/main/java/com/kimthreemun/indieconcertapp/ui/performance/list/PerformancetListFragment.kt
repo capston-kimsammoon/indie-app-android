@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -36,8 +37,11 @@ class PerformanceListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         adapter = PerformanceListAdapter(emptyList()) { performance ->
-            // TODO: 상세 페이지 이동
+            val action = PerformanceListFragmentDirections
+                .actionPerformanceListFragmentToPerformanceDetailFragment(performance)
+            findNavController().navigate(action)
         }
+
 
         binding.rvPerformances.layoutManager = LinearLayoutManager(requireContext())
         binding.rvPerformances.adapter = adapter
@@ -53,7 +57,7 @@ class PerformanceListFragment : Fragment() {
         }
 
         binding.ivCalendar.setOnClickListener {
-            // findNavController().navigate(R.id.calendarFragment)
+             findNavController().navigate(R.id.calendarFragment)
         }
 
         binding.btnSort.setOnClickListener { showSortOptions() }

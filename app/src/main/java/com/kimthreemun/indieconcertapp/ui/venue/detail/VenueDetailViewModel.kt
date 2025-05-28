@@ -1,6 +1,5 @@
 package com.kimthreemun.indieconcertapp.ui.venue.detail
 
-
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,16 +7,12 @@ import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Venue
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 
-
 class VenueDetailViewModel : ViewModel() {
-
 
     private val _venue = MutableLiveData<Venue>()
     val artist: LiveData<Venue> = _venue
 
-
     val scheduledPerformances = MutableLiveData<List<Performance>>()
-
 
     fun loadVenueDetail(venueId: Int) {
         _venue.value = Venue(
@@ -26,7 +21,6 @@ class VenueDetailViewModel : ViewModel() {
             profileImageUrl = "",  // 테스트용 URL
             instagramHandle = "@unplugged_stage",
         )
-
 
         scheduledPerformances.value = listOf(
             Performance(id = 1, title = "SWELL", date = "2025.06.10", posterImageResId = R.drawable.venue_sample2),

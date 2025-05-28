@@ -1,6 +1,5 @@
 package com.kimthreemun.indieconcertapp.ui.venue.detail
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +10,9 @@ import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 
-
 class VenueDetailAdapter(
     private val performances: MutableList<Performance>
 ) : RecyclerView.Adapter<VenueDetailAdapter.ViewHolder>() {
-
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivPoster: ImageView = view.findViewById(R.id.ivPoster)
@@ -23,19 +20,16 @@ class VenueDetailAdapter(
         val tvPerformanceDate: TextView = view.findViewById(R.id.tvPerformanceDate)
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_performance_thumbnail, parent, false)
         return ViewHolder(view)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val performance = performances[position]
         holder.tvPerformanceTitle.text = performance.title
         holder.tvPerformanceDate.text = performance.date
-
 
         performance.posterImageResId?.let { resId ->
             Glide.with(holder.itemView.context)
@@ -50,9 +44,7 @@ class VenueDetailAdapter(
         }
     }
 
-
     override fun getItemCount(): Int = performances.size
-
 
     fun setData(newPerformances: List<Performance>) {
         performances.clear()

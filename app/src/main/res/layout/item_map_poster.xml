@@ -7,7 +7,6 @@
     android:paddingTop="16dp"
     android:paddingBottom="4dp">
 
-
     <ImageView
         android:id="@+id/iv_poster"
         android:layout_width="100dp"
@@ -23,7 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
     <TextView
         android:id="@+id/tv_venue"
@@ -41,7 +39,6 @@
         app:layout_constraintStart_toStartOf="@id/iv_poster"
         app:layout_constraintEnd_toEndOf="@id/iv_poster" />
 
-
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="0dp"
@@ -55,10 +52,5 @@
         app:layout_constraintTop_toBottomOf="@id/tv_venue"
         app:layout_constraintStart_toStartOf="@id/iv_poster"
         app:layout_constraintEnd_toEndOf="@id/iv_poster" />
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

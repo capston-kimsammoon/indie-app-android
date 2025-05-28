@@ -7,24 +7,11 @@
     android:paddingVertical="0dp"
     android:paddingHorizontal="0dp">
 
-    <View
-        android:id="@+id/bg_card"
-        android:layout_width="0dp"
-        android:layout_height="136dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/bg_select_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <!-- 포스터 이미지 -->
     <ImageView
         android:id="@+id/iv_poster"
         android:layout_width="90dp"
         android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:outlineProvider="background"
@@ -42,7 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:text="우주넘어 ‘Beyond Universe'"
         android:textColor="@color/black"
         android:textSize="14sp"
@@ -51,7 +37,7 @@
         android:ellipsize="end"
         app:layout_constraintStart_toEndOf="@id/iv_poster"
         app:layout_constraintTop_toTopOf="@id/iv_poster"
-        app:layout_constraintEnd_toEndOf="@id/bg_card" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- 공연 시간 -->
     <TextView
@@ -60,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:text="오후 4시 30분"
         android:textColor="@color/black"
         android:textSize="12sp"
@@ -92,7 +77,6 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:contentDescription="@string/move"
         android:src="@drawable/icon_move"
         app:layout_constraintStart_toEndOf="@id/tv_venue"
@@ -122,7 +106,6 @@
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:contentDescription="@string/copy"
         android:src="@drawable/icon_copy"
         app:layout_constraintStart_toEndOf="@id/tv_address"

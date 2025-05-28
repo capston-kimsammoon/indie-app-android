@@ -1,6 +1,5 @@
 package com.kimthreemun.indieconcertapp.ui.map.list
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +10,10 @@ import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 
-
 class MapListAdapter(
     private var performances: List<Performance>,
     private val onItemClick: (Performance) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
 
     // 아이템 타입 정의
     companion object {
@@ -133,7 +130,6 @@ class MapListAdapter(
             }
         }
     }
-
 
 
 

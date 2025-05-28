@@ -7,30 +7,24 @@
     android:paddingHorizontal="8dp"
     android:paddingBottom="4dp">
 
-
     <include
         android:id="@+id/map_poster1"
         layout="@layout/item_map_poster" />
 
-
     <Space
         android:layout_width="24dp"
         android:layout_height="wrap_content" />
-
 
     <include
         android:id="@+id/map_poster2"
         layout="@layout/item_map_poster" />
 
-
     <Space
         android:layout_width="24dp"
         android:layout_height="wrap_content" />
 
-
     <include
         android:id="@+id/map_poster3"
         layout="@layout/item_map_poster" />
-
 
 </LinearLayout>

@@ -60,6 +60,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
+//    implementation("androidx.navigation:navigation-fragment-ktx:2.9.0")
+//    implementation("androidx.navigation:navigation-ui-ktx:2.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4") // 복잡한 UI
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation("com.naver.maps:map-sdk:3.21.0")
+
     // Navigation (명시된 버전 유지)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")

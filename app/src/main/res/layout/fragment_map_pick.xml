@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:paddingVertical="0dp"
     android:paddingHorizontal="0dp">
+  
+  
 
 
     <!-- 포스터 이미지 -->

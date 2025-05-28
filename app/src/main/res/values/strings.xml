@@ -7,10 +7,16 @@
     <string name="back">뒤로가기</string>
     <string name="menu">메뉴</string>
     <string name="search">검색</string>
+<<<<<<< HEAD
+    <string name="poster_img">포스터 이미지</string>
+    <string name="copy">복사</string>
+    <string name="move">이동하기</string>
+=======
     <string name="post">자유게시판</string>
     <string name="poster_image">포스터 이미지</string>
     <string name="copy">복사하기</string>
     <string name="move">이동하기</string>
     <string name="poster_img">포스터 이미지</string>
 
+>>>>>>> cc933e52565fb768e843568f9a724c6c3aecf129
 </resources>

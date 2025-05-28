@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Artist
+import com.kimthreemun.indieconcertapp.data.sample.SamplePerformances
 
 class PerformanceListViewModel : ViewModel() {
 
@@ -60,60 +61,6 @@ class PerformanceListViewModel : ViewModel() {
     }
 
     private fun loadPerformances() {
-        val dummyArtist = Artist(
-            id = 1,
-            name = "아티스트 이름",
-            profileImageUrl = "https://example.com/artist.jpg",
-            profileImageResId = R.drawable.sample_profile
-        )
-
-
-        _performances.value = listOf(
-            Performance(
-                id = 1,
-                title = "운해몽1",
-                venue = "인터플레이",
-                date = "2025.05.10 토요일",
-                time = "14:00",
-                region = "서울",
-                artists = listOf(dummyArtist),
-                price = "10000",
-                ticketOpen = "2025.04.01",
-                detailLink = "https://example.com/detail",
-                posterUrl = "https://example.com/poster.jpg",
-                dday = 8
-            ),
-            Performance(
-                id = 2,
-                title = "운해몽2",
-                venue = "인터플레이",
-                date = "2025.05.11 일요일",
-                time = "14:00",
-                region = "부산",
-                artists = listOf(dummyArtist),
-                price = "10000",
-                ticketOpen = "2025.04.01",
-                detailLink = "https://example.com/detail",
-                posterUrl = "https://example.com/poster.jpg",
-                dday = 8
-            ),
-            Performance(
-                id = 3,
-                title = "운해몽3",
-                venue = "인터플레이",
-                date = "2025.05.12 화요일",
-                time = "14:00",
-                region = "인천",
-                artists = listOf(dummyArtist),
-                price = "10000",
-                ticketOpen = "2025.04.01",
-                detailLink = "https://example.com/detail",
-                posterUrl = "https://example.com/poster.jpg",
-                dday = 8
-            )
-
-        ).also {
-            allPerformances = it
-        }
+        _performances.value = SamplePerformances.all
     }
 }
