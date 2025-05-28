@@ -4,7 +4,7 @@ package com.kimthreemun.indieconcertapp.ui.favorite
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.kimthreemun.indieconcertapp.ui.favorite.list.FavoritePerformanceFragment
-import com.kimthreemun.indieconcertapp.ui.favorite.list.FavoriteArtistFragment
+
 
 class FavoritePagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

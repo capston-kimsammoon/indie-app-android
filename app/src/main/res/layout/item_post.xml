@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/postTitle"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="게시물 제목입니다"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/postContent"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="게시물 내용입니다"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/postImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/sample_poster"
+        android:scaleType="centerCrop"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/postInfo"
+        android:textSize="12sp"
+        android:text="닉네임댓글시간"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>
