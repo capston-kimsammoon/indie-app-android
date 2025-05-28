@@ -62,6 +62,7 @@ dependencies {
 //    implementation("androidx.navigation:navigation-ui-ktx:2.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4") // 복잡한 UI
     implementation ("com.google.android.material:material:1.11.0")
+    implementation("com.naver.maps:map-sdk:3.21.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
