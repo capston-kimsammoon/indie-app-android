@@ -24,4 +24,8 @@
     <!-- ✅ 너의 브랜치에서만 있었던 색 -->
     <color name="text_primary">#FF1C1C1E</color>
     <color name="text_hint">#FFB0B0B0</color>
+
+    <color name="tab_selected">#F14F21</color>
+    <color name="tab_unselected">#4B4B4B</color>
+
 </resources>

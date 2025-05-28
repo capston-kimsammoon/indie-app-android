@@ -7,12 +7,13 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class Performance(
     val id: Int,
-    val title: String,
-    val date: String,
+    val title: String = "",
+    val date: String = "",
     val venue: String = "",
     val time: String = "",
     val region: String = "",
-    var artists: List<Artist> = emptyList(),
+    val address: String = "",
+    val artists: List<String> = emptyList(),
     val price: String = "",
     val ticketOpenDate: String = "",
     val ticketOpenTime: String = "",
@@ -20,7 +21,7 @@ class Performance(
     val posterUrl: String = "",
     val dday: Int = 0,
     val posterImageResId: Int? = null,
-
+    var isSelected: Boolean = false,
     var isLiked: Boolean = false,
     var likeCount: Int = 0,
     var isNotified: Boolean = false

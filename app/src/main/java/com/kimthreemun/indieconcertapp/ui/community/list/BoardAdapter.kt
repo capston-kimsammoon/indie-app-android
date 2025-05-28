@@ -1,47 +1,40 @@
 package com.kimthreemun.indieconcertapp.ui.community.list
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.kimthreemun.indieconcertapp.R
-
-data class Post(
-    val title: String,
-    val content: String,
-    val commentCount: Int,
-    val time: String,
-    val author: String
-)
-
+import com.kimthreemun.indieconcertapp.data.model.dto.post.PostDto
+import com.kimthreemun.indieconcertapp.databinding.ItemBoardPostBinding
 class BoardAdapter(
-    private val context: Context,
-    private val postList: List<Post>
-) : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
+    private var items: List<PostDto>,
+    private val onItemClick: (PostDto) -> Unit
+) : RecyclerView.Adapter<BoardAdapter.BoardViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.nickname)
-        val content: TextView = itemView.findViewById(R.id.content)
-        val commentCount: TextView = itemView.findViewById(R.id.comment_count_1)
-        val time: TextView = itemView.findViewById(R.id.post_time_1)
-        val author: TextView = itemView.findViewById(R.id.post_author_1)
+    inner class BoardViewHolder(val binding: ItemBoardPostBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(post: PostDto) {
+            binding.tvTitle.text = post.title
+            binding.tvContent.text = post.content
+            binding.tvDate.text = post.date
+            binding.tvAuthor.text = post.author
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.recyclerview_item, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemBoardPostBinding.inflate(inflater, parent, false)
+        return BoardViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val post = postList[position]
-        holder.title.text = post.title
-        holder.content.text = post.content
-        holder.commentCount.text = post.commentCount.toString()
-        holder.time.text = post.time
-        holder.author.text = post.author
+    override fun onBindViewHolder(holder: BoardViewHolder, position: Int) {
+        holder.bind(items[position])
     }
 
-    override fun getItemCount(): Int = postList.size
+    override fun getItemCount(): Int = items.size
+
+    fun updateList(newItems: List<PostDto>) {
+        items = newItems
+        notifyDataSetChanged()
+    }
 }
+
+

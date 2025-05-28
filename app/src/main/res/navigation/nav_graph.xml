@@ -102,11 +102,40 @@
 
     <fragment
         android:id="@+id/postListFragment"
-        android:name="com.kimthreemun.indieconcertapp.ui.community.list.PostListFragment"
-        android:label="게시판 목록" />
+        android:name="com.kimthreemun.indieconcertapp.ui.community.list.BoardFragment"
+        android:label="자유게시판">
+
+        <!-- ✅ PostDetailFragment로 이동하는 action 추가 -->
+        <action
+            android:id="@+id/action_postListFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+
+        <!-- ✅ 글쓰기 화면으로 가는 액션 추가 -->
+        <action
+            android:id="@+id/action_postListFragment_to_postWriteFragment"
+            app:destination="@id/postWriteFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.community.detail.PostDetailFragment"
+        android:label="게시글 상세">
+        <argument
+            android:name="post"
+            app:argType="com.kimthreemun.indieconcertapp.data.model.domain.Post" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postWriteFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.community.create.PostWriteFragment"
+        android:label="글쓰기 화면" />
+
 
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.map.MapFragment"
         android:label="가까운 공연 찾기" />
+
+
 </navigation>

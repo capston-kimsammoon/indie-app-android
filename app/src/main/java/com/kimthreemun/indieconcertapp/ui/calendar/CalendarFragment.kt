@@ -214,3 +214,7 @@ class CalendarFragment : Fragment() {
         )
     }
 }
+
+private fun MainActivity?.openDrawer() {
+    TODO("Not yet implemented")
+}

@@ -14,6 +14,10 @@ import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFr
 import com.kimthreemun.indieconcertapp.ui.artist.list.ArtistListFragment
 import com.kimthreemun.indieconcertapp.ui.artist.detail.ArtistDetailFragment
 import com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment
+import com.kimthreemun.indieconcertapp.ui.map.list.MapListFragment
+import com.kimthreemun.indieconcertapp.ui.map.pick.MapPickFragment
+import com.kimthreemun.indieconcertapp.ui.venue.detail.VenueDetailFragment
+import com.kimthreemun.indieconcertapp.ui.venue.list.VenueListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -79,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openDrawer() {
-        drawerLayout.openDrawer(GravityCompat.START)
+        drawerLayout.openDrawer(GravityCompat.START)f
     }
 
     override fun onSupportNavigateUp(): Boolean {
