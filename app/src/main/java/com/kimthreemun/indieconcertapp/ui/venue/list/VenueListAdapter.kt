@@ -1,21 +1,35 @@
 package com.kimthreemun.indieconcertapp.ui.venue.list
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Venue
 
-class VenueListAdapter(private val venueList: List<Venue>) :
-    RecyclerView.Adapter<VenueListAdapter.VenueListViewHolder>() {
+
+class VenueListAdapter :
+    ListAdapter<Venue, VenueListAdapter.VenueListViewHolder>(VenueDiffCallback()) {
+
 
     class VenueListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgProfile: ImageView = itemView.findViewById(R.id.img_profile)
         val tvArtistName: TextView = itemView.findViewById(R.id.tvArtistName)
+
+
+        fun bind(venue: Venue) {
+            tvArtistName.text = venue.name
+            venue.profileImageResId?.let {
+                imgProfile.setImageResource(it)
+            }
+        }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VenueListViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -23,14 +37,20 @@ class VenueListAdapter(private val venueList: List<Venue>) :
         return VenueListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: VenueListViewHolder, position: Int) {
-        val venue = venueList[position]
-        holder.tvArtistName.text = venue.name
 
-        venue.profileImageResId?.let {
-            holder.imgProfile.setImageResource(it)
-        }
+    override fun onBindViewHolder(holder: VenueListViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+}
+
+
+class VenueDiffCallback : DiffUtil.ItemCallback<Venue>() {
+    override fun areItemsTheSame(oldItem: Venue, newItem: Venue): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    override fun getItemCount(): Int = venueList.size
+
+    override fun areContentsTheSame(oldItem: Venue, newItem: Venue): Boolean {
+        return oldItem == newItem
+    }
 }

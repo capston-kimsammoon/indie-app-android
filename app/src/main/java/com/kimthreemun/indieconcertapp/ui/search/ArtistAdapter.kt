@@ -6,11 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Artist
+
+
 class ArtistAdapter(private val items: List<Artist>) :
     RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder>() {
 
@@ -29,7 +32,7 @@ class ArtistAdapter(private val items: List<Artist>) :
     override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
         val item = items[position]
         holder.tvArtistName.text = item.name
-        // Glide.with(holder.itemView).load(item.profileUrl).into(holder.ivProfile)
+        Glide.with(holder.itemView).load(item.profileImageUrl).into(holder.ivProfile)
         // 좋아요 버튼 처리도 여기에 추가 가능
     }
 

@@ -33,7 +33,7 @@ class ShowAdapter(private val items: List<Performance>) :
         holder.tvPlace.text = item.venue
         holder.tvDate.text = item.date
 
-        Glide.with(holder.itemView).load(item.posterImageResId).into(holder.ivPoster)
+        Glide.with(holder.itemView).load(item.posterUrl).into(holder.ivPoster)
 
     }
 

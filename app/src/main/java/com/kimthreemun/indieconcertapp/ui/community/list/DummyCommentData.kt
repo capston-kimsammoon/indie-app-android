@@ -61,7 +61,6 @@ object DummyCommentData {
             profileUrl = "",
             content = "홍대 공연장 웬만하면 주차장 없습니다 참고하세요",
             createdAt = "3분 전",
-            parentCommentId = 3
         ),
 
         // Post 5
@@ -101,6 +100,9 @@ object DummyCommentData {
             parentCommentId = 9
         )
 
-
     )
+
+    fun getCommentCountForPost(postId: Int): Int {
+        return commentList.count { it.postId == postId }
+    }
 }

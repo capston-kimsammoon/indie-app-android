@@ -11,14 +11,14 @@ import com.kimthreemun.indieconcertapp.ui.search.ShowSearchFragment
 
 class SearchPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ShowSearchFragment()
-           // 1 -> VenueSearchFragment()
-            1 -> ArtistSearchFragment()
-            2 -> BoardSearchFragment()
+            1 -> VenueSearchFragment()
+            2 -> ArtistSearchFragment()
+            3 -> BoardSearchFragment()
             else -> throw IllegalArgumentException("Invalid position: $position")
         }
     }
