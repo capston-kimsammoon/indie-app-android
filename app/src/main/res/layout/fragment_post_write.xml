@@ -114,7 +114,7 @@
             android:id="@+id/btn_add_image"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_add_image_to_post"
+            android:src="@drawable/ic_add_image_to_post2"
             android:contentDescription="사진 추가" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

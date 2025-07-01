@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         headerView.findViewById<View>(R.id.layoutNicknameArea)?.setOnClickListener {
-            navController.navigate(R.id.mypageFragment)
+            navController.navigate(R.id.loginFragment)
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 

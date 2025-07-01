@@ -41,6 +41,11 @@
         android:label="마이페이지" />
 
     <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kimthreemun.indieconcertapp.ui.mypage.LoginFragment"
+        android:label="로그인" />
+
+    <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.favorite.FavoriteFragment"
         android:label="찜 목록">

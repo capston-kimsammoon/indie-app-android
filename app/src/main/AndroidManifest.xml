@@ -39,6 +39,21 @@
 
         </activity>
 
+        <activity
+            android:name=".ui.mypage.LoginActivity"
+            android:exported="true"
+            android:label="Login" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="oauth"
+                    android:scheme="kakao9af1bfd63591abaa1bb829d8d7b56032" />
+            </intent-filter>
+        </activity>
+
         <!--
         🔁 [PUSH 전에 바꿀 것]
 >>>>>>> cc933e52565fb768e843568f9a724c6c3aecf129

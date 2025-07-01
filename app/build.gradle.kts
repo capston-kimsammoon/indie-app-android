@@ -63,9 +63,7 @@ dependencies {
     implementation ("com.google.android.flexbox:flexbox:3.0.0")
 //    implementation("androidx.navigation:navigation-fragment-ktx:2.9.0")
 //    implementation("androidx.navigation:navigation-ui-ktx:2.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4") // 복잡한 UI
     implementation ("com.google.android.material:material:1.11.0")
-    implementation("com.naver.maps:map-sdk:3.21.0")
 
     // Navigation (명시된 버전 유지)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
@@ -79,8 +77,25 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
 
+    //
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    // Kakao login
+    implementation ("com.kakao.sdk:v2-all:2.20.1") // 전체 모듈 설치, 2.11.0 버전부터 지원
+    implementation ("com.kakao.sdk:v2-user:2.20.1") // 카카오 로그인 API 모듈
+    implementation ("com.kakao.sdk:v2-share:2.20.1") // 카카오톡 공유 API 모듈
+    implementation ("com.kakao.sdk:v2-talk:2.20.1") // 카카오톡 채널, 카카오톡 소셜, 카카오톡 메시지 API 모듈
+    implementation ("com.kakao.sdk:v2-friend:2.20.1") // 피커 API 모듈
+    implementation ("com.kakao.sdk:v2-navi:2.20.1") // 카카오내비 API 모듈
+    implementation ("com.kakao.sdk:v2-cert:2.20.1") // 카카오톡 인증 서비스 API 모듈
+
+    // Naver map
     implementation("com.naver.maps:map-sdk:3.21.0")
+
+    // backend
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // DI & 이미지 로딩
     implementation(libs.glide)
