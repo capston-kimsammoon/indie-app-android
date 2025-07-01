@@ -23,7 +23,6 @@
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_poster_rounded"
             android:contentDescription="poster" />
 
         <!-- 텍스트 정보 -->
@@ -49,7 +48,7 @@
 
             <!-- 공연장 -->
             <TextView
-                android:id="@+id/tvPlace"
+                android:id="@+id/tvVenue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="홍대 무대륙"

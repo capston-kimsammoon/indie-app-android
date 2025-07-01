@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.home.HomeFragment"
-        android:label="홈" />
+        android:label="홈">
+        <action
+            android:id="@+id/action_homeFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
@@ -19,16 +23,13 @@
         android:name="com.kimthreemun.indieconcertapp.ui.calendar.CalendarFragment"
         android:label="캘린더">
 
-        <!-- ✅ 검색 페이지로 이동하는 액션 추가 -->
         <action
             android:id="@+id/action_calendarFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_calendarFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
     </fragment>
-
-<!--    <fragment-->
-<!--        android:id="@+id/bookmarkFragment"-->
-<!--        android:name="com.kimthreemun.indieconcertapp.ui.bookmark.BookmarkFragment"-->
-<!--        android:label="찜 목록" />-->
 
     <fragment
         android:id="@+id/notificationFragment"
@@ -51,6 +52,8 @@
             android:id="@+id/action_favoriteFragment_to_artistDetailFragment"
             app:destination="@id/artistDetailFragment" />
     </fragment>
+
+
 
     <fragment
         android:id="@+id/performanceListFragment"
@@ -105,12 +108,12 @@
         android:name="com.kimthreemun.indieconcertapp.ui.community.list.BoardFragment"
         android:label="자유게시판">
 
-        <!-- ✅ PostDetailFragment로 이동하는 action 추가 -->
+        <!-- PostDetailFragment로 -->
         <action
             android:id="@+id/action_postListFragment_to_postDetailFragment"
             app:destination="@id/postDetailFragment" />
 
-        <!-- ✅ 글쓰기 화면으로 가는 액션 추가 -->
+        <!-- 글쓰기 화면으로 -->
         <action
             android:id="@+id/action_postListFragment_to_postWriteFragment"
             app:destination="@id/postWriteFragment" />
@@ -131,11 +134,12 @@
         android:name="com.kimthreemun.indieconcertapp.ui.community.create.PostWriteFragment"
         android:label="글쓰기 화면" />
 
-
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.kimthreemun.indieconcertapp.ui.map.list.MapListFragment"
-        android:label="가까운 공연 찾기" />
-
-
+        android:label="가까운 공연 찾기">
+        <action
+            android:id="@+id/action_mapFragment_to_performanceDetailFragment"
+            app:destination="@id/performanceDetailFragment" />
+    </fragment>
 </navigation>

@@ -1,35 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- 🔹 Divider: 프로필 영역과 메뉴 영역 사이 회색 선 -->
-    <item
-        android:id="@+id/nav_divider"
-        android:title=""
-        app:actionLayout="@layout/menu_divider" />
-
-
     <item
         android:id="@+id/nav_performance"
         android:title=""
-        app:actionLayout="@layout/menu_item_performance" />
+        app:actionLayout="@layout/menu_item_common" />
 
     <item
         android:id="@+id/nav_venue"
         android:title=""
-        app:actionLayout="@layout/menu_item_venue" />
+        app:actionLayout="@layout/menu_item_common" />
 
     <item
         android:id="@+id/nav_artist"
         android:title=""
-        app:actionLayout="@layout/menu_item_artist" />
+        app:actionLayout="@layout/menu_item_common" />
 
     <item
         android:id="@+id/nav_board"
         android:title=""
-        app:actionLayout="@layout/menu_item_freeboard" />
+        app:actionLayout="@layout/menu_item_common" />
 
     <item
         android:id="@+id/nav_nearby"
         android:title=""
-        app:actionLayout="@layout/menu_item_nearby" />
+        app:actionLayout="@layout/menu_item_common" />
 </menu>

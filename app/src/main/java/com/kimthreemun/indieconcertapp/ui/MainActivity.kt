@@ -11,6 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
 import com.kimthreemun.indieconcertapp.R
 import android.content.Intent
+import com.kimthreemun.indieconcertapp.common.util.setupNavigationMenu
+
 
 import com.kimthreemun.indieconcertapp.ui.performance.list.PerformanceListFragment
 import com.kimthreemun.indieconcertapp.ui.performance.detail.PerformanceDetailFragment
@@ -66,6 +68,8 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
+
+        setupNavigationMenu(navView.menu)
 
         val headerView = navView.getHeaderView(0)
 

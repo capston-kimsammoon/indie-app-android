@@ -22,7 +22,7 @@ class VenueDetailAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_performance_thumbnail, parent, false)
+            .inflate(R.layout.item_performance_title_date, parent, false)
         return ViewHolder(view)
     }
 

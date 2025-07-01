@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.FragmentPerformanceDetailBinding
 import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
+import android.util.TypedValue
 
 class PerformanceDetailFragment : Fragment() {
 
@@ -25,10 +26,6 @@ class PerformanceDetailFragment : Fragment() {
     private lateinit var adapter: PerformanceDetailAdapter
 
     private val args: PerformanceDetailFragmentArgs by navArgs()
-
-    private val radiusPx by lazy {
-        (16 * resources.displayMetrics.density).toInt()  // 16dp를 px로 변환
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -77,13 +74,17 @@ class PerformanceDetailFragment : Fragment() {
                 if (performanceDetail.isNotified) R.drawable.ic_notify_on else R.drawable.ic_notify_off
             )
 
+            val radiusPx = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                8f,
+                binding.root.context.resources.displayMetrics
+            ).toInt()
+
             // Glide 로 포스터 이미지도 넣기
             Glide.with(binding.root)
                 .load(performanceDetail.posterUrl)
                 .transform(RoundedCorners(radiusPx))
                 .into(binding.ivPoster)
-
-
         }
 
         binding.ivHeart.setOnClickListener {

@@ -34,15 +34,15 @@ class BoardFragment : Fragment() {
 
 //        view.findViewById<TextView>(R.id.headerTitle).text = "자유게시판"
 
-        // 뒤로가기 버튼 동작 설정
-        view.findViewById<ImageView>(R.id.iconBack).setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
-
-        // 검색 아이콘 클릭 시 검색 페이지로 이동
-        view.findViewById<ImageView>(R.id.iconSearch).setOnClickListener {
-            findNavController().navigate(R.id.searchFragment)
-        }
+//        // 뒤로가기 버튼 동작 설정
+//        view.findViewById<ImageView>(R.id.iconBack).setOnClickListener {
+//            requireActivity().onBackPressedDispatcher.onBackPressed()
+//        }
+//
+//        // 검색 아이콘 클릭 시 검색 페이지로 이동
+//        view.findViewById<ImageView>(R.id.iconSearch).setOnClickListener {
+//            findNavController().navigate(R.id.searchFragment)
+//        }
 
 
         super.onViewCreated(view, savedInstanceState)

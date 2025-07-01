@@ -35,8 +35,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 구분선 -->
-    <include layout="@layout/divider_line" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider" />
 
     <!-- 공연장 리스트 -->
     <androidx.recyclerview.widget.RecyclerView

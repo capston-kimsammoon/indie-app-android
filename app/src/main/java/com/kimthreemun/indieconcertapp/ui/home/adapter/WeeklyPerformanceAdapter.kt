@@ -7,15 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.kimthreemun.indieconcert.data.model.domain.Concert
+import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.ItemTodayShowBinding
 import com.kimthreemun.indieconcertapp.R
 
-class WeeklyConcertAdapter : RecyclerView.Adapter<WeeklyConcertAdapter.ViewHolder>() {
+class WeeklyPerformanceAdapter(
+    private val onGoClick: () -> Unit,
+    private val onItemClick: (Performance) -> Unit
+) : RecyclerView.Adapter<WeeklyPerformanceAdapter.ViewHolder>() {
 
-    private val items = mutableListOf<Concert>()
+    private val items = mutableListOf<Performance>()
 
-    fun submitList(data: List<Concert>) {
+    fun submitList(data: List<Performance>) {
         items.clear()
         items.addAll(data)
         notifyDataSetChanged()
@@ -24,27 +27,32 @@ class WeeklyConcertAdapter : RecyclerView.Adapter<WeeklyConcertAdapter.ViewHolde
     inner class ViewHolder(private val binding: ItemTodayShowBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Concert) {
+        fun bind(item: Performance) {
             binding.tvTitle.text = item.title
-            binding.tvPlace.text = item.place
+            binding.tvVenue.text = item.venue
             binding.tvDate.text = item.date
+
+            binding.ivGo.setOnClickListener {
+                onGoClick()
+            }
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
 
             // radius dp → px 변환
             val radiusInPx = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
-                12f, // 12dp
+                8f,
                 binding.root.context.resources.displayMetrics
             ).toInt()
 
             Glide.with(binding.root)
                 .load(item.posterUrl)
-                .placeholder(R.drawable.bg_poster_rounded)
-                .error(R.drawable.bg_poster_rounded)
-                .thumbnail(0.1f)
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .dontAnimate()
                 .centerCrop()
-                .transform(RoundedCorners(radiusInPx)) // ✅ 둥근 모서리 처리
+                .transform(RoundedCorners(radiusInPx))
                 .into(binding.ivPoster)
         }
     }

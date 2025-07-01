@@ -22,7 +22,7 @@
         android:layout_width="15dp"
         android:layout_height="24dp"
         android:contentDescription="뒤로가기"
-        android:src="@drawable/icon_back"
+        android:src="@drawable/ic_chevron_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -33,11 +33,11 @@
         android:layout_width="20dp"
         android:layout_height="18dp"
         android:layout_marginStart="24dp"
-    android:contentDescription="메뉴"
-    android:src="@drawable/icon_hamburger"
-    app:layout_constraintStart_toEndOf="@id/ivBack"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent" />
+        android:contentDescription="메뉴"
+        android:src="@drawable/ic_menu"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- 가운데 정렬된 알림 텍스트 -->
     <TextView
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="알림"
-        android:textColor="#1C1C1E"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

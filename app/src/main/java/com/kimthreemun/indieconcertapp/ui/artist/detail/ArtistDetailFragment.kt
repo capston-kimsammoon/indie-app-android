@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 import com.kimthreemun.indieconcertapp.databinding.FragmentArtistDetailBinding
