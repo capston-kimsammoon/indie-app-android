@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/map_poster1"
-        layout="@layout/item_map_poster" />
+        layout="@layout/item_performance_venue_date" />
 
     <Space
         android:layout_width="24dp"
@@ -17,7 +17,7 @@
 
     <include
         android:id="@+id/map_poster2"
-        layout="@layout/item_map_poster" />
+        layout="@layout/item_performance_venue_date" />
 
     <Space
         android:layout_width="24dp"
@@ -25,6 +25,6 @@
 
     <include
         android:id="@+id/map_poster3"
-        layout="@layout/item_map_poster" />
+        layout="@layout/item_performance_venue_date" />
 
 </LinearLayout>

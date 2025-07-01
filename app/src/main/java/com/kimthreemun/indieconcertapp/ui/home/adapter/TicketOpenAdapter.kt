@@ -8,15 +8,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.kimthreemun.indieconcert.data.model.domain.Concert
+import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.ItemTicketOpenBinding
+import androidx.core.content.ContextCompat
 
-class TicketOpenAdapter : RecyclerView.Adapter<TicketOpenAdapter.ViewHolder>() {
+class TicketOpenAdapter(
+    private val onItemClick: (Performance) -> Unit
+) : RecyclerView.Adapter<TicketOpenAdapter.ViewHolder>() {
 
-    private val items = mutableListOf<Concert>()
+    private val items = mutableListOf<Performance>()
 
-    fun submitList(data: List<Concert>) {
+    fun submitList(data: List<Performance>) {
         items.clear()
         items.addAll(data)
         notifyDataSetChanged()
@@ -25,14 +28,19 @@ class TicketOpenAdapter : RecyclerView.Adapter<TicketOpenAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemTicketOpenBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Concert) {
+        fun bind(item: Performance) {
             binding.tvTitle.text = item.title
-            binding.tvPlace.text = item.place
+            binding.tvVenue.text = item.venue
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
 
             binding.tvTicketDate.apply {
                 text = "예매오픈\n${item.ticketOpenDate ?: "-"}"
-                setTextColor(Color.parseColor("#F14F21"))
+                setTextColor(ContextCompat.getColor(binding.root.context, R.color.theme_orange))
             }
+
 
             // dp → px 변환
             val radiusPx = TypedValue.applyDimension(
@@ -43,13 +51,11 @@ class TicketOpenAdapter : RecyclerView.Adapter<TicketOpenAdapter.ViewHolder>() {
 
             Glide.with(binding.root)
                 .load(item.posterUrl)
-                .placeholder(R.drawable.bg_poster_rounded)
-                .error(R.drawable.bg_poster_rounded)
                 .thumbnail(0.1f)
                 .dontAnimate()
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .centerCrop()
-                .transform(RoundedCorners(radiusPx)) // ✅ 둥근 모서리 적용
+                .transform(RoundedCorners(radiusPx))
                 .into(binding.ivPoster)
         }
     }

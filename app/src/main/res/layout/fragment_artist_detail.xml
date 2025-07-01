@@ -39,7 +39,7 @@
                             android:id="@+id/layoutPtofile"
                             android:layout_width="82dp"
                             android:layout_height="82dp"
-                            android:background="@drawable/circle_border">
+                            android:background="@drawable/circle_filled">
 
                             <ImageView
                                 android:id="@+id/ivProfile"
@@ -49,7 +49,7 @@
                                 android:scaleType="centerCrop"
                                 android:layout_gravity="center"
                                 android:src="@drawable/sample_profile"
-                                android:background="@drawable/circle_border"
+                                android:background="@drawable/circle_filled"
                                 android:clipToOutline="true" />
                         </FrameLayout>
 
@@ -60,7 +60,7 @@
                             android:layout_alignBottom="@id/layoutPtofile"
                             android:layout_alignEnd="@id/layoutPtofile"
                             android:src="@drawable/ic_heart_outline"
-                            android:background="@drawable/circle_border"
+                            android:background="@drawable/circle_filled"
                             android:contentDescription="좋아요 버튼"
                             android:padding="4dp" />
                     </RelativeLayout>

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#FAFAFA"
+    android:background="@color/white"
     android:padding="16dp">
 
-    <!-- 🔹 상단 아이콘: 뒤로가기 + 알림 -->
+    <!-- 상단 아이콘: 뒤로가기 + 알림 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,7 +18,7 @@
             android:layout_width="15dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
-            app:srcCompat="@drawable/icon_back"
+            app:srcCompat="@drawable/ic_chevron_left"
             android:contentDescription="뒤로가기" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -26,17 +26,17 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
-            app:srcCompat="@drawable/icon_notification"
+            app:srcCompat="@drawable/ic_notify"
             android:contentDescription="알림" />
     </RelativeLayout>
 
-    <!-- 🔹 프로필 + 닉네임 -->
+    <!-- 프로필 + 닉네임 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginTop="48dp"> <!-- ✅ 상단과의 간격 추가 -->
+        android:layout_marginTop="48dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivProfile"
@@ -46,7 +46,7 @@
             android:contentDescription="프로필 이미지"
             android:layout_marginEnd="16dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/circle_background" />
+            android:background="@drawable/circle_border" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -68,16 +68,16 @@
                     android:text="예빈스클럽"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#1C1C1E" />
+                    android:textColor="@color/black" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivNicknameArrow"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_marginStart="6dp"
-                    app:srcCompat="@drawable/icon_go"
+                    app:srcCompat="@drawable/ic_chevron_right_black"
                     android:contentDescription="닉네임 이동"
-                    android:tint="#1C1C1E" />
+                    android:tint="@color/black" />
             </LinearLayout>
 
             <TextView
@@ -86,14 +86,21 @@
                 android:layout_height="wrap_content"
                 android:text="♡ 찜 목록"
                 android:textSize="12sp"
-                android:textColor="#4B4B4B"
+                android:textColor="@color/dark_gray"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_tag_grey"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp" />
+                android:background="@drawable/bg_button"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/divider" />
 </LinearLayout>

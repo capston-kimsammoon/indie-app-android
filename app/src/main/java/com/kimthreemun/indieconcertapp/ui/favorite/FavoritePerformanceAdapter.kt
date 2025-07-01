@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.databinding.ItemFavoritePerformanceBinding
+import android.util.TypedValue
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class FavoritePerformanceAdapter(
     private var performances: List<Performance>,
@@ -23,10 +25,17 @@ class FavoritePerformanceAdapter(
             binding.tvVenue.text = performance.venue
             binding.tvDate.text = performance.date
 
+            val radiusPx = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                8f,
+                binding.root.context.resources.displayMetrics
+            ).toInt()
+
             Glide.with(binding.root.context)
-                .load(performance.posterUrl) // 이건 URL 또는 resId 로직에 따라 조절
+                .load(performance.posterUrl)
                 .placeholder(R.drawable.sample_poster)
                 .error(R.drawable.sample_poster)
+                .transform(RoundedCorners(radiusPx))
                 .into(binding.imgPoster)
 
             binding.root.setOnClickListener {

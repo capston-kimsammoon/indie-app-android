@@ -21,7 +21,7 @@
             android:id="@+id/btn_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_chevron_left"
             android:contentDescription="뒤로가기" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="자유게시판"
             android:textSize="18sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <Button
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="완료"
-            android:textColor="#F14F21"
+            android:textColor="@color/theme_orange"
             android:textSize="14sp"
             android:textStyle="bold"
             android:background="@android:color/transparent"
@@ -74,7 +74,7 @@
                 android:hint="제목을 입력해주세요."
                 android:textSize="16sp"
                 android:background="@null"
-                android:textColor="#000000"
+                android:textColor="@color/light_gray"
                 android:textStyle="bold" />
 
             <EditText
@@ -85,7 +85,7 @@
                 android:minLines="8"
                 android:textSize="14sp"
                 android:background="@null"
-                android:textColor="#000000"
+                android:textColor="@color/light_gray"
                 android:layout_marginTop="16dp" />
 
             <ImageView

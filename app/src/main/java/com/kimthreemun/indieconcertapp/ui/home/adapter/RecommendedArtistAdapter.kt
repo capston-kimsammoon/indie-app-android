@@ -6,43 +6,49 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.kimthreemun.indieconcert.data.model.domain.Concert
-import com.kimthreemun.indieconcertapp.databinding.ItemShowBinding
+import com.kimthreemun.indieconcertapp.data.model.domain.Performance
+import com.kimthreemun.indieconcertapp.databinding.ItemPerformanceTitleVenueDateBinding
 
-class RecommendedArtistAdapter : RecyclerView.Adapter<RecommendedArtistAdapter.ViewHolder>() {
+class RecommendedArtistAdapter(
+    private val onItemClick: (Performance) -> Unit
+) : RecyclerView.Adapter<RecommendedArtistAdapter.ViewHolder>() {
 
-    private val items = mutableListOf<Concert>()
+    private val items = mutableListOf<Performance>()
 
-    fun submitList(data: List<Concert>) {
+    fun submitList(data: List<Performance>) {
         items.clear()
         items.addAll(data)
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ItemShowBinding) :
+    inner class ViewHolder(private val binding: ItemPerformanceTitleVenueDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Concert) {
+        fun bind(item: Performance) {
             binding.tvTitle.text = item.title
-            binding.tvPlace.text = item.place
+            binding.tvVenue.text = item.venue
             binding.tvDate.text = item.date
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
 
             // dp → px 변환
             val radiusPx = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
-                12f,
+                8f,
                 binding.root.context.resources.displayMetrics
             ).toInt()
 
             Glide.with(binding.root)
                 .load(item.posterUrl)
-                .transform(RoundedCorners(radiusPx)) // ✅ 둥근 모서리 적용
+                .transform(RoundedCorners(radiusPx))
                 .into(binding.ivPoster)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPerformanceTitleVenueDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

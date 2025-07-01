@@ -7,50 +7,52 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.kimthreemun.indieconcert.data.model.domain.Concert
+import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 import com.kimthreemun.indieconcertapp.R
-import com.kimthreemun.indieconcertapp.databinding.ItemShowBinding
+import com.kimthreemun.indieconcertapp.databinding.ItemPerformanceTitleVenueDateBinding
 
-class NewConcertAdapter : RecyclerView.Adapter<NewConcertAdapter.ViewHolder>() {
+class NewPerformanceAdapter(
+    private val onItemClick: (Performance) -> Unit
+) : RecyclerView.Adapter<NewPerformanceAdapter.ViewHolder>() {
 
-    private val items = mutableListOf<Concert>()
+    private val items = mutableListOf<Performance>()
 
-    fun submitList(data: List<Concert>) {
+    fun submitList(data: List<Performance>) {
         items.clear()
         items.addAll(data)
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ItemShowBinding) :
+    inner class ViewHolder(private val binding: ItemPerformanceTitleVenueDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Concert) {
+        fun bind(item: Performance) {
             binding.tvTitle.text = item.title
-            binding.tvPlace.text = item.place
+            binding.tvVenue.text = item.venue
             binding.tvDate.text = item.date
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
 
             // dp → px 변환 (for RoundedCorners)
             val radiusPx = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
-                12f,
+                8f,
                 binding.root.context.resources.displayMetrics
             ).toInt()
 
             Glide.with(binding.root)
                 .load(item.posterUrl)
-                .placeholder(R.drawable.bg_poster_rounded)
-                .error(R.drawable.bg_poster_rounded)
-                .thumbnail(0.1f)                                // 썸네일 우선 로드
-                .dontAnimate()                                  // 애니메이션 제거
                 .diskCacheStrategy(DiskCacheStrategy.DATA)      // 캐시 전략
                 .centerCrop()
-                .transform(RoundedCorners(radiusPx))            // ✅ 모서리 둥글게 처리
+                .transform(RoundedCorners(radiusPx))
                 .into(binding.ivPoster)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPerformanceTitleVenueDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

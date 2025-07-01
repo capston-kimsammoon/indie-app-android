@@ -23,7 +23,7 @@
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_margin="12dp"
-                android:background="@drawable/circle_border">
+                android:background="@drawable/circle_filled">
 
                 <ImageView
                     android:id="@+id/ivProfile"
@@ -31,7 +31,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:src="@drawable/sample_profile"
-                    android:background="@drawable/circle_border" />
+                    android:background="@drawable/circle_filled" />
             </FrameLayout>
 
             <TextView
@@ -89,7 +89,7 @@
                 android:id="@+id/btnLike"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_heart_border"
+                android:background="@drawable/circle_border"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_heart_outline"/>
         </FrameLayout>

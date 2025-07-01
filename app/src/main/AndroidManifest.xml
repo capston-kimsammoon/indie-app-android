@@ -54,21 +54,6 @@
             </intent-filter>
         </activity>
 
-        <!--
-        🔁 [PUSH 전에 바꿀 것]
->>>>>>> cc933e52565fb768e843568f9a724c6c3aecf129
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.IndieConcertApp">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-
     </application>
 
 </manifest>

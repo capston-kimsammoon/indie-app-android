@@ -3,9 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="0dp"
-    android:paddingHorizontal="0dp">
+    android:layout_height="wrap_content">
 
     <!-- 포스터 이미지 -->
     <ImageView
@@ -17,7 +15,6 @@
         android:outlineProvider="background"
         android:contentDescription="@string/poster_img"
         android:src="@drawable/poster_sample2"
-        android:background="@drawable/style_img_corner"
         android:clipToOutline="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +75,7 @@
         android:layout_height="10dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/move"
-        android:src="@drawable/icon_move"
+        android:src="@drawable/ic_chevron_right_black"
         app:layout_constraintStart_toEndOf="@id/tv_venue"
         app:layout_constraintTop_toTopOf="@id/tv_venue"
         app:layout_constraintBottom_toBottomOf="@id/tv_venue" />
@@ -107,7 +104,7 @@
         android:layout_height="12dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/copy"
-        android:src="@drawable/icon_copy"
+        android:src="@drawable/ic_copy"
         app:layout_constraintStart_toEndOf="@id/tv_address"
         app:layout_constraintTop_toTopOf="@id/tv_address"
         app:layout_constraintBottom_toBottomOf="@id/tv_address" />

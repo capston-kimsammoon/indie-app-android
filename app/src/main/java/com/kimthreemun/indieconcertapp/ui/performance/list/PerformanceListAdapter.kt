@@ -1,6 +1,7 @@
 // /ui/performance/list/PerformanceListAdapter.kt
 package com.kimthreemun.indieconcertapp.ui.performance.list
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.data.model.domain.Performance
 
@@ -25,7 +27,7 @@ class PerformanceListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PerformanceViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_performance, parent, false)
+            .inflate(R.layout.item_performance_horizontal, parent, false)
         return PerformanceViewHolder(view)
     }
 
@@ -35,9 +37,16 @@ class PerformanceListAdapter(
         holder.venue.text = performance.venue
         holder.date.text = performance.date
 
+        val radiusPx = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            8f,
+            holder.itemView.context.resources.displayMetrics
+        ).toInt()
+
         Glide.with(holder.poster.context)
             .load(performance.posterUrl)
-            .placeholder(R.drawable.sample_poster)  // 이미지 로딩 전 기본 이미지 (sample_poster.png를 drawable에 넣으세요)
+            .placeholder(R.drawable.sample_poster)
+            .transform(RoundedCorners(radiusPx))
             .into(holder.poster)
 
         holder.itemView.setOnClickListener {

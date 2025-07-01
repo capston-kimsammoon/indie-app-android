@@ -21,7 +21,6 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/poster_image"
         android:src="@drawable/poster_sample1"
-        android:background="@drawable/style_img_corner"
         android:clipToOutline="true"
         android:outlineProvider="background"
         app:layout_constraintDimensionRatio="3:4" />

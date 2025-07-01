@@ -3,24 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="14dp"
-    android:paddingBottom="14dp">
+    android:padding="16dp">
 
-    <!-- 텍스트: 항상 왼쪽에 정렬 -->
+    <!-- 왼쪽에 텍스트 -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:text="공연"
         android:textSize="16sp"
-        android:textColor="#1C1C1E"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
-    <!-- 화살표 아이콘: 항상 오른쪽에 정렬 -->
+    <!-- 오른쪽에 화살표 아이콘 -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon"
         android:layout_width="16dp"
@@ -28,6 +24,6 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:contentDescription="화살표"
-        app:srcCompat="@drawable/icon_go"
-        android:tint="#1C1C1E" />
+        app:srcCompat="@drawable/ic_chevron_right_black"
+        android:tint="@color/black" />
 </RelativeLayout>

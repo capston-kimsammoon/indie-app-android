@@ -23,7 +23,7 @@ class MapListSetAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_map_poster, parent, false)
+            .inflate(R.layout.item_performance_venue_date, parent, false)
         return PosterViewHolder(view)
     }
 

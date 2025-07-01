@@ -9,7 +9,6 @@
         android:id="@+id/imgPoster"
         android:layout_width="104dp"
         android:layout_height="140dp"
-        android:background="@drawable/style_img_corner"
         android:outlineProvider="background"
         android:clipToOutline="true"
         android:contentDescription="공연 포스터"
@@ -25,7 +24,7 @@
         android:maxLines="2"
         android:paddingTop="4dp"
         android:layout_marginBottom="2dp"
-        android:textColor="#1C1C1E"
+        android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold" />
 
@@ -36,6 +35,6 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="#4B4B4B"
+        android:textColor="@color/dark_gray"
         android:textSize="8sp" />
 </LinearLayout>
