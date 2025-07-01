@@ -23,7 +23,7 @@ object SamplePerformances {
         id = 1,
         title = "<이제(SOON)> ‘우리가 그리는‘",
         venue = "톤스튜디오 서울",
-        date = "2025.06.21. 토요일",
+        date = "2025-06-21",
         time = "15:00/19:00",
         region = "서울",
         price = "66,000",
@@ -37,7 +37,7 @@ object SamplePerformances {
         id = 2,
         title = "SUMMER MATCH",
         venue = "홍대 언플러그드 B1 공연장",
-        date = "2025.06.15 일요일",
+        date = "2025-06-21",
         time = "19:00",
         region = "서울",
         price = "25,000",
@@ -50,7 +50,7 @@ object SamplePerformances {
     val performance3 = Performance(
         id = 3,
         title = "Plane On Mars – Undefined Planet Korea Tour",
-        date = "2025.06.15 일요일",
+        date = "2025-06-21",
         time = "19:00",
         venue = "거제대로 3734, 지하 1층 언드",
         region = "경상",
@@ -61,7 +61,7 @@ object SamplePerformances {
     val performance4 = Performance(
         id = 4,
         title = "[KOONG WORLD와 함께하는 우주라이브] '밤하늘'",
-        date = "2025.06.15 일요일",
+        date = "2025-06-22",
         time = "19:00",
         venue = "홍대우주정거장",
         region = "서울",
@@ -72,7 +72,7 @@ object SamplePerformances {
     val performance5 = Performance(
         id = 5,
         title = "CALLING AFTER ME@FF",
-        date = "2025.06.15 일요일",
+        date = "2025-06-23",
         time = "19:00",
         region = "서울",
         detailLink = "hongdaeff",
@@ -82,7 +82,7 @@ object SamplePerformances {
     val performance6 = Performance(
         id = 6,
         title = "6월의 낮과밤 먼슬리 라이브!",
-        date = "2025.06.15 일요일",
+        date = "2025-06-24",
         time = "19:00",
         venue = "클럽낮과밤",
         region = "제주",

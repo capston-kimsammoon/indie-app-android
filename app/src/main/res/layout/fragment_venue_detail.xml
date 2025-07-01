@@ -30,7 +30,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/bg_circle_profile"
+                    android:background="@drawable/circle_filled"
                     android:src="@drawable/venue_profile1"
                     android:clipToOutline="true" />
 
@@ -133,7 +133,7 @@
             android:layout_height="12dp"
             android:layout_marginStart="0dp"
             android:contentDescription="@string/copy"
-            android:src="@drawable/icon_copy"
+            android:src="@drawable/ic_copy"
             app:layout_constraintStart_toEndOf="@id/tv_address"
             app:layout_constraintTop_toTopOf="@id/tv_address"
             app:layout_constraintBottom_toBottomOf="@id/tv_address" />
@@ -173,7 +173,6 @@
             android:layout_marginTop="8dp"
             android:clipToPadding="false"
             android:overScrollMode="never"
-            android:background="@drawable/style_img_corner"
             android:clipToOutline="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/labelScheduledPerformance"

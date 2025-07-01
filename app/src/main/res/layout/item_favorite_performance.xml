@@ -17,7 +17,6 @@
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@drawable/sample_poster"
-            android:background="@drawable/bg_poster_border"
             android:clipToOutline="true"
             android:outlineProvider="background" />
 
@@ -72,7 +71,7 @@
                 android:id="@+id/btnLike"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_heart_border"
+                android:background="@drawable/circle_border"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_heart_outline"/>
         </FrameLayout>

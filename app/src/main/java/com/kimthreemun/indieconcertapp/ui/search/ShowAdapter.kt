@@ -16,13 +16,13 @@ class ShowAdapter(private val items: List<Performance>) :
     inner class ShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivPoster: ImageView = itemView.findViewById(R.id.ivPoster)
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
-        val tvPlace: TextView = itemView.findViewById(R.id.tvPlace)
+        val tvVenue: TextView = itemView.findViewById(R.id.tvVenue)
         val tvDate: TextView = itemView.findViewById(R.id.tvDate)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_show, parent, false)
+            .inflate(R.layout.item_performance_title_venue_date, parent, false)
         return ShowViewHolder(view)
     }
 
@@ -30,7 +30,7 @@ class ShowAdapter(private val items: List<Performance>) :
         val item = items[position]
 
         holder.tvTitle.text = item.title
-        holder.tvPlace.text = item.venue
+        holder.tvVenue.text = item.venue
         holder.tvDate.text = item.date
 
         Glide.with(holder.itemView).load(item.posterUrl).into(holder.ivPoster)

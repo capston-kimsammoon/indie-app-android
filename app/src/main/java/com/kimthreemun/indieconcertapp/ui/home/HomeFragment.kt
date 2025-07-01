@@ -11,10 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.navigation.fragment.findNavController
 import com.kimthreemun.indieconcertapp.databinding.FragmentHomeBinding
-import com.kimthreemun.indieconcert.ui.home.adapter.NewConcertAdapter
+import com.kimthreemun.indieconcert.ui.home.adapter.NewPerformanceAdapter
 import com.kimthreemun.indieconcert.ui.home.adapter.RecommendedArtistAdapter
 import com.kimthreemun.indieconcert.ui.home.adapter.TicketOpenAdapter
-import com.kimthreemun.indieconcert.ui.home.adapter.WeeklyConcertAdapter
+import com.kimthreemun.indieconcert.ui.home.adapter.WeeklyPerformanceAdapter
 import com.kimthreemun.indieconcertapp.common.util.SetupCommonHeader
 
 import com.kimthreemun.indieconcertapp.R
@@ -30,8 +30,8 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    private lateinit var weeklyAdapter: WeeklyConcertAdapter
-    private lateinit var newAdapter: NewConcertAdapter
+    private lateinit var weeklyAdapter: WeeklyPerformanceAdapter
+    private lateinit var newAdapter: NewPerformanceAdapter
     private lateinit var ticketAdapter: TicketOpenAdapter
     private lateinit var recommendedAdapter: RecommendedArtistAdapter
 
@@ -49,21 +49,17 @@ class HomeFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-//        println("✅ HomeFragment onViewCreated 호출됨")
-
         setupDateText()
         setupClickListeners()
         setupAdapters()
 
-        viewModel.concerts.observe(viewLifecycleOwner) { list ->
-//            println("🎯 concerts 데이터 개수: ${list.size}")
+        viewModel.performances.observe(viewLifecycleOwner) { list ->
             weeklyAdapter.submitList(list)
             newAdapter.submitList(list)
             recommendedAdapter.submitList(list)
         }
 
-        viewModel.ticketOpenConcerts.observe(viewLifecycleOwner) { list ->
-//            println("🎯 ticketOpenConcerts 데이터 개수: ${list.size}")
+        viewModel.ticketOpenPerformances.observe(viewLifecycleOwner) { list ->
             ticketAdapter.submitList(list)
         }
     }
@@ -75,33 +71,51 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
-        // ✅ 사이드 메뉴 열기
-        /*binding.iconHamburger.setOnClickListener {
-            val drawer = requireActivity().findViewById<DrawerLayout>(R.id.drawer_layout)
-            drawer.openDrawer(GravityCompat.START)
-        }
-
-        binding.iconQ.setOnClickListener {
-            findNavController().navigate(R.id.searchFragment)
-        }*/
-
         binding.layoutCalendar.setOnClickListener {
             findNavController().navigate(R.id.calendarFragment)
         }
     }
 
     private fun setupAdapters() {
-        weeklyAdapter = WeeklyConcertAdapter()
-        newAdapter = NewConcertAdapter()
-        ticketAdapter = TicketOpenAdapter()
-        recommendedAdapter = RecommendedArtistAdapter()
+        weeklyAdapter = WeeklyPerformanceAdapter(
+            onGoClick = {
+                val current = binding.viewPagerTodayPerformance.currentItem
+                val total = weeklyAdapter.itemCount
+                if (current < total - 1) {
+                    binding.viewPagerTodayPerformance.currentItem = current + 1
+                }
+            },
+            onItemClick = { performance ->
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
+        )
+        newAdapter = NewPerformanceAdapter(
+            onItemClick = { performance ->
+                val action = HomeFragmentDirections.actionHomeFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
+        )
+        ticketAdapter = TicketOpenAdapter(
+            onItemClick = { performance ->
+                val action = HomeFragmentDirections.actionHomeFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
+        )
+        recommendedAdapter = RecommendedArtistAdapter(
+            onItemClick = { performance ->
+                val action = HomeFragmentDirections.actionHomeFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
+        )
 
-        binding.viewPagerTodayConcert.apply {
+        binding.viewPagerTodayPerformance.apply {
             adapter = weeklyAdapter
             offscreenPageLimit = 1
         }
 
-        binding.recyclerNewConcert.apply {
+        binding.recyclerNewPerformance.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = newAdapter
             setHasFixedSize(true)
@@ -122,7 +136,7 @@ class HomeFragment : Fragment() {
             itemAnimator = null
         }
 
-        binding.dotsIndicator.attachTo(binding.viewPagerTodayConcert)
+        binding.dotsIndicator.attachTo(binding.viewPagerTodayPerformance)
     }
 
     override fun onDestroyView() {

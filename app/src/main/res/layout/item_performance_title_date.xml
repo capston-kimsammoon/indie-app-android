@@ -13,7 +13,6 @@
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/sample_poster"
-        android:background="@drawable/style_img_corner"
         android:clipToOutline="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

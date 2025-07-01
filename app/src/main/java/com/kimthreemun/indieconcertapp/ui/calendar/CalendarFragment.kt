@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kimthreemun.indieconcertapp.R
 import com.kimthreemun.indieconcertapp.databinding.FragmentCalendarBinding
 import com.kimthreemun.indieconcertapp.ui.MainActivity
-import com.kimthreemun.indieconcertapp.ui.calendar.adapter.DailyConcertAdapter
+import com.kimthreemun.indieconcertapp.ui.calendar.adapter.DailyPerformanceAdapter
 import com.kimthreemun.indieconcertapp.common.util.showOptionBottomSheet
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.DayOwner
@@ -98,24 +98,32 @@ class CalendarFragment : Fragment() {
                 binding.tvLocationFilter.text =
                     if (filtered.isEmpty()) "지역 전체" else filtered.joinToString(", ")
 
-                binding.calendarView.notifyCalendarChanged() // ✅ 지역 필터 변경 후 갱신
+                binding.calendarView.notifyCalendarChanged() // 지역 필터 변경 후 갱신
             }
         }
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerDailyConcerts.apply {
+        binding.recyclerDailyPerformances.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
-            adapter = DailyConcertAdapter(emptyList())
+            adapter = DailyPerformanceAdapter(emptyList()) { performance ->
+                val action = CalendarFragmentDirections
+                    .actionCalendarFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
             addItemDecoration(GridSpacingItemDecoration(3, 16, true))
         }
+    }
+
+    inner class DayViewContainer(view: View) : ViewContainer(view) {
+        val textView: TextView = view.findViewById(R.id.textViewDay)
     }
 
     private fun setupCalendar() {
         val daysOfWeek = daysOfWeek()
 
         binding.calendarView.dayBinder = object : DayBinder<DayViewContainer> {
-            override fun create(view: View) = DayViewContainer(view)
+            override fun create(view: View): DayViewContainer = DayViewContainer(view)
 
             override fun bind(container: DayViewContainer, day: CalendarDay) {
                 container.textView.text = day.date.dayOfMonth.toString()
@@ -124,7 +132,7 @@ class CalendarFragment : Fragment() {
                     container.textView.visibility = View.VISIBLE
                     val date = day.date
 
-                    val concertDates = viewModel.getConcertDates() // ✅ 이 부분 수정
+                    val concertDates = viewModel.getPerformanceDates()
 
                     when {
                         selectedDate == date -> {
@@ -173,8 +181,12 @@ class CalendarFragment : Fragment() {
             }
         }
 
-        viewModel.filteredConcerts.observe(viewLifecycleOwner) { concerts ->
-            binding.recyclerDailyConcerts.adapter = DailyConcertAdapter(concerts)
+        viewModel.filteredPerformances.observe(viewLifecycleOwner) { performances ->
+            binding.recyclerDailyPerformances.adapter = DailyPerformanceAdapter(performances) { performance ->
+                val action = CalendarFragmentDirections
+                    .actionCalendarFragmentToPerformanceDetailFragment(performance)
+                findNavController().navigate(action)
+            }
             binding.calendarView.notifyCalendarChanged()
         }
     }
@@ -182,10 +194,6 @@ class CalendarFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    inner class DayViewContainer(view: View) : ViewContainer(view) {
-        val textView: TextView = view.findViewById(R.id.textViewDay)
     }
 
     private class GridSpacingItemDecoration(

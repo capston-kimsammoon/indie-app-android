@@ -16,7 +16,7 @@
             layout="@layout/header_common"
             android:id="@+id/commonHeader" />
 
-        <!-- ✅ 월 <5월> + 지역 -->
+        <!-- 월 <5월> + 지역 -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     android:id="@+id/btnPrevMonth"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/icon_go"
+                    android:src="@drawable/ic_chevron_right_black"
                     android:rotationY="180"
                     app:tint="#888888"
                     android:contentDescription="이전 달" />
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5월"
-                    android:textColor="#1C1C1E"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginHorizontal="8dp" />
@@ -55,7 +55,7 @@
                     android:id="@+id/btnNextMonth"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/icon_go"
+                    android:src="@drawable/ic_chevron_right_black"
                     app:tint="#888888"
                     android:contentDescription="다음 달" />
             </LinearLayout>
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:orientation="horizontal"
-                android:background="@drawable/bg_filter_rounded"
+                android:background="@drawable/bg_button"
                 android:paddingHorizontal="8dp"
                 android:gravity="center_vertical"
                 android:layout_alignParentEnd="true"
@@ -76,19 +76,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="지역전체"
-                    android:textColor="#1C1C1E"
+                    android:textColor="@color/black"
                     android:textSize="11sp" />
 
                 <ImageView
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:layout_marginStart="4dp"
-                    android:src="@drawable/icon_under"
+                    android:src="@drawable/ic_chevron_down"
                     android:contentDescription="지역 선택" />
             </LinearLayout>
         </RelativeLayout>
 
-        <!-- ✅ 요일 헤더 -->
+        <!-- 요일 헤더 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
             <!-- 요일 TextView는 생략 -->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- ✅ 캘린더 -->
+        <!-- 캘린더 -->
         <com.kizitonwose.calendarview.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
@@ -105,7 +105,7 @@
             app:cv_dayViewResource="@layout/item_calendar_day"
             android:layout_marginTop="4dp" />
 
-        <!-- ✅ 선택한 날짜 텍스트 -->
+        <!-- 선택한 날짜 텍스트 -->
         <TextView
             android:id="@+id/tvSelectedDate"
             android:layout_width="match_parent"
@@ -117,16 +117,16 @@
             android:padding="16dp"
             android:visibility="visible" />
 
-        <!-- ✅ 구분선 -->
+        <!-- 구분선 -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E4E4E4"
             android:layout_marginBottom="16dp" />
 
-        <!-- ✅ 공연 리스트 -->
+        <!-- 공연 리스트 -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerDailyConcerts"
+            android:id="@+id/recyclerDailyPerformances"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"

@@ -40,15 +40,18 @@
             tools:text="오후 4시 30분 이후 공연" />
     </LinearLayout>
 
-    <!-- 구분선 -->
-    <include layout="@layout/divider_line" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingStart="16dp" >
+        android:padding="16dp" >
 
         <!-- 아래 리스트 영역 (스크롤) -->
         <androidx.recyclerview.widget.RecyclerView
@@ -60,6 +63,6 @@
             android:clipChildren="false"
             android:overScrollMode="never"
             android:paddingBottom="20dp"
-            tools:listitem="@layout/item_map_poster" />
+            tools:listitem="@layout/item_performance_venue_date" />
     </LinearLayout>
 </LinearLayout>

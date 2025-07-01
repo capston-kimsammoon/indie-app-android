@@ -29,7 +29,6 @@ fun Fragment.showOptionBottomSheet(
     titleView.text = title
     val selectedSet = preSelected.toMutableSet()
 
-    // ✅ Flexbox 속성 적용
     container.flexDirection = FlexDirection.ROW
     container.flexWrap = FlexWrap.WRAP
     container.justifyContent = JustifyContent.FLEX_START

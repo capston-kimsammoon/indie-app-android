@@ -25,7 +25,6 @@
                 android:id="@+id/ivPoster"
                 android:layout_width="120dp"
                 android:layout_height="160dp"
-                android:background="@drawable/style_img_corner"
                 android:outlineProvider="background"
                 android:clipToOutline="true"
                 android:contentDescription="poster"
@@ -49,7 +48,7 @@
 
             <!-- 공연장 이름 -->
             <TextView
-                android:id="@+id/tvPlace"
+                android:id="@+id/tvVenue"
                 android:layout_width="156dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvTitle"
@@ -66,8 +65,8 @@
                 android:id="@+id/tvDate"
                 android:layout_width="156dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvPlace"
-                android:layout_alignStart="@id/tvPlace"
+                android:layout_below="@id/tvVenue"
+                android:layout_alignStart="@id/tvVenue"
                 android:layout_marginTop="6dp"
                 android:text="2024.05.15 (수)"
                 android:textColor="#FF4B4B4B"
@@ -84,7 +83,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="12dp"
                 android:contentDescription="go"
-                android:src="@drawable/icon_go" />
+                android:src="@drawable/ic_chevron_right_black" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

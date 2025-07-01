@@ -45,6 +45,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:scaleType="centerCrop"
+                            android:clipToOutline="true"
+                            android:outlineProvider="background"
                             android:src="@drawable/sample_poster" />
 
                         <!-- 좋아요 -->
@@ -200,7 +202,7 @@
                 android:id="@+id/tvVenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawableEnd="@drawable/ic_chevron_right_gray"
                 android:drawablePadding="8dp"
                 android:text="cafe PPnF"
                 android:paddingVertical="8dp"

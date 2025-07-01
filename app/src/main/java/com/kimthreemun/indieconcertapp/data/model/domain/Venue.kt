@@ -1,11 +1,8 @@
-// data/model/domain/Venue.kt
 package com.kimthreemun.indieconcertapp.data.model.domain
 
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-
-
 @Parcelize
 data class Venue(
     val id: Int,

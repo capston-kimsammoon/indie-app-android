@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedScrollView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -12,44 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- 상단 아이콘 Row -->
-        <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:id="@+id/iconHamburger"
-                android:layout_width="20dp"
-                android:layout_height="18dp"
-                android:src="@drawable/icon_hamburger"
-                app:tint="#F14F21" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="1dp" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/icon_logo" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="1dp" />
-
-            <ImageView
-                android:id="@+id/iconQ"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/icon_q" />
-        </LinearLayout>
-        -->
         <!-- 헤더 -->
         <include
             layout="@layout/header_common"
@@ -71,7 +34,7 @@
                 android:textColor="#FF1C1C1E" />
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerTodayConcert"
+                android:id="@+id/viewPagerTodayPerformance"
                 android:layout_width="match_parent"
                 android:layout_height="185dp"
                 android:layout_marginTop="8dp" />
@@ -84,11 +47,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"
                 app:dotsColor="#E4E4E4"
-                app:selectedDotColor="#F14F21"
+                app:selectedDotColor="@color/theme_orange"
                 app:dotsSize="6dp"
                 app:dotsSpacing="6dp" />
 
-            <!-- ✅ 캘린더 안내 -->
+            <!-- 캘린더 안내 -->
             <LinearLayout
                 android:id="@+id/layoutCalendar"
                 android:layout_width="wrap_content"
@@ -103,13 +66,13 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginEnd="12dp"
-                    android:background="@drawable/bg_circle_grey">
+                    android:background="@drawable/circle_filled">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/calander"
+                        android:src="@drawable/ic_calendar"
                         android:contentDescription="calendar" />
                 </FrameLayout>
 
@@ -118,14 +81,14 @@
                     android:layout_height="wrap_content"
                     android:text="캘린더로 공연 일정 확인하기"
                     android:textSize="14sp"
-                    android:textColor="#FF1C1C1E"
+                    android:textColor="@color/text_primary"
                     android:layout_gravity="center_vertical" />
 
                 <ImageView
                     android:layout_width="6dp"
                     android:layout_height="10dp"
                     android:layout_marginStart="8dp"
-                    android:src="@drawable/icon_go"
+                    android:src="@drawable/ic_chevron_right_black"
                     android:contentDescription="go" />
             </LinearLayout>
 
@@ -148,7 +111,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerNewConcert"
+                android:id="@+id/recyclerNewPerformance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

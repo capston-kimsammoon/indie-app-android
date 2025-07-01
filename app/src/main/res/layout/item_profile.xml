@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="66dp"
         android:layout_height="66dp"
-        android:background="@drawable/circle_border">
+        android:background="@drawable/circle_filled">
 
         <ImageView
             android:id="@+id/ivProfile"
@@ -18,7 +18,7 @@
             android:layout_height="64dp"
             android:layout_gravity="center"
             android:src="@drawable/sample_profile"
-            android:background="@drawable/circle_border" />
+            android:background="@drawable/circle_filled" />
     </FrameLayout>
 
     <!-- 이름 -->
